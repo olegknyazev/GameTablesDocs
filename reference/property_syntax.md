@@ -1,6 +1,7 @@
 ---
 parent: Reference
 title: Property Syntax
+nav_order: 1
 ---
 # Property Syntax
 When importing data from a table, Game Tables needs to know how to map a property specified a table to a prefab. Prefab is a complex thing: it’s a hierarchy of objects each of which may have components, each of which may have properties. Properties may be nested into each other. 
