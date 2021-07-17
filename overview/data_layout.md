@@ -32,7 +32,9 @@ The property path may contain the following elements:
 4. *Property name* which determines exact property inside a object: `Velocity`, `Rotation.Y`, `Targets[0].Position.X`
 
 In its general form property has the following syntax:
-...
+```
+Name/ [SubObject/]* [<Component>] Property[.SubProperty]*
+```
 
 For more details on property syntax see [Property Path Syntax]({{ site.baseurl }}{% link reference/property_path_syntax.md %}).
 
@@ -40,9 +42,3 @@ As was stated before, the property path is combined from row (*prefix*) and colu
 - Prefix of a property may contain *object name*, *object path* and *component type* (elements 1-3)
 - Suffix of a property may contain *object path*, *component type* and *property name* (elements 2-4)
 - Prefix and suffix cannot overlap (elements 1-2 plus 3-4 is ok while 1-3 plus 3-4 is not). For example, if prefix contains a *component type*, then suffix cannot contain neither *object path* nor *component type*
-
-## The Import Process
-
-**TODO** not sure it should be here
-
-When searching for a matching property, Game Tables tried to do most intuitive thing: find any property that matches specified name, if there is exactly one of those, everything is good: apply it. But if there’s more than one property matches, you have to specify more explicitly to which part of prefab it should be applied. To do so Game Tables supports rich syntax for properties. Of course, you can use it even when there’s no ambiguity, if you want to be explicit.
