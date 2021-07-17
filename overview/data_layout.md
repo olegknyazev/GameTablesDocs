@@ -34,7 +34,7 @@ The property path may contain the following elements:
 In its general form property has the following syntax:
 ...
 
-More details on property syntax see in [reference]({% link reference/property_pat_syntax.md %}).
+For more details on property syntax see [Property Path Syntax]({% link reference/property_path_syntax.md %}).
 
 As was stated before, the property path is combined from row (*prefix*) and column (*suffix*) headers. Game Tables leaves you some freedom in deciding which parts of a property path go to prefix and which to suffix, but some restrictions are applied:
 - Prefix of a property may contain *object name*, *object path* and *component type* (elements 1-3)
