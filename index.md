@@ -1,9 +1,8 @@
 ---
-title: Overview
-has_children: true
+title: About
 nav_order: 0
 ---
-# Overview
+# About
 Game Tables is a Unity plugin that imports prefab properties from table sources: online Google Sheets pages or locally stored CSV files.
 
 *Why would you need it?*
