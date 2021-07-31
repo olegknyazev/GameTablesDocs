@@ -28,9 +28,9 @@ Examples:
 * Yellow Car / Front Left Wheel \<Rigid Body\>
 * Plasma Gun / \<Shooter\> Patterns[0].Offset
 
-Notice the **/** separator between *Prefab Name* and the following header components. It's required if a row header contains any components besides *Prefab Name*. Otherwise it would be impossible to distinguish the extra components from *Prefab Name* due to whitespace-insensitivity of Game Tables.
+Notice the **/** separator between *Prefab Name* and the following header elements. It's required if a row header contains any elements besides *Prefab Name*. Otherwise it would be impossible to distinguish the extra elements from *Prefab Name* due to whitespace-insensitivity of Game Tables.
 
-More details on specific header components see in [Header Components](#header-components).
+More details on specific header elements see in [Header Elements](#header-elements).
 
 ## Column Headers
 
@@ -47,15 +47,15 @@ Examples:
 * \<Clip\> Ammo
 * Spawn Point 1 / \<Spawner\> Offset.X
 
-## Header Components
+## Header Elements
 
-There are four types of components that may be used in row and column headers: *Prefab Name*, *Game Object Name*, *Component Type* and *Property Path*.
+There are four types of elements that may be used in row and column headers: *Prefab Name*, *Game Object Name*, *Component Type* and *Property Path*.
 
-An important thing is that these components *always* go in order, i.e. you cannot specify *Component Type* after *Property Path*. This rule is applyable even when these components split between row and column headers. In this case the row header is considered as a prefix for the column header.
+An important thing is that these elements *always* go in order, i.e. you cannot specify *Component Type* after *Property Path*. This rule is applyable even when these elements split between row and column headers. In this case the row header is considered as a prefix for the column header.
 
-The only required components that any cell should contain are *Prefab Name* and *Property Path*.
+The only required elements that any cell should contain are *Prefab Name* and *Property Path*.
 
-It does not matter for Game Tables how exactly you split the required components by row and column headers. So, the following compositions actually refer the same property:
+It does not matter for Game Tables how exactly you split the required elements by row and column headers. So, the following compositions actually refer the same property:
 
 | Player / Gun \<Clip\> Bursts[0] | Pellet Count |
 
@@ -63,7 +63,7 @@ It does not matter for Game Tables how exactly you split the required components
 
 | Player | Gun \<Clip\> Bursts[0].Pellet Count |
 
-The following subsections describes header component types in details.
+The following subsections describes header element types in details.
 
 ### Prefab Name
 
@@ -95,7 +95,7 @@ Example:
 
 ### Component Type
 
-*Component Type* locates a component inside a game object. Because game object may contain several component, a simple property name may be ambiguous. So, *Component Type* allows you to specify to which exactly component the property should be applied.
+*Component Type* locates a component inside a game object. Because game object may contain several components, a simple property name may be ambiguous. So, *Component Type* allows you to specify to which exactly component the property should be applied.
 
 *Component Type* is only appliable to prefabs, it should not be used in cells that target scriptable objects.
 
@@ -103,7 +103,7 @@ When *Game Object Name* is not specified, Game Tables searches for the required 
 
 *Component Type* is optional, you may omit it from both row and column header.
 
-To distinguish *Component Type* from other components (classifiers?) it's enclosed in angle brackets. Example:
+To distinguish *Component Type* from other elements it's enclosed in angle brackets. Example:
 * \<Rigid Body\>
 * \<Enemy Brain\>
 
@@ -129,7 +129,7 @@ Examples:
 
 ## Case- and Whitespace Sensitivity
 
-All the path components are both case- and whitespace insensitive. When looking for an object or its property, Game Tables converts both actual property name and the name, specified in a table, to lower registry and removes all the whitespace. After this comparison happen. So, all the following property paths actually refer to the same property:
+All the path elements are both case- and whitespace insensitive. When looking for an object or its property, Game Tables converts both actual property name and the name, specified in a table, to lower registry and removes all the whitespace. After this comparison happen. So, all the following property paths actually refer to the same property:
 - `Cluster Mine / <Spreading Spawner> Targets[0].Offset.X`
 - `ClusterMine/<SpreadingSpawner>Targets[0].Offset.X`
 - `clustermine/<spreadingspawner>targets[0].offset.x`

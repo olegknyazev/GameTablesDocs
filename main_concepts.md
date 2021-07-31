@@ -29,7 +29,7 @@ Content contains actual data that is applied to target objects' properties. Head
 | Player   | 120    | 35     |
 | Enemy    | 90     | 20     |
 
-But actually both headers may contain more information that allow you to select a property more precisely. There's four components by using which Game Tables locates an object and a property to modify: *Object name*, *Object path*, *Component type* and *Property name*. These components may be split accross row and column headers which allows you to compose sophisticated table layouts like this one:
+But actually both headers may contain more information that allow you to select a property more precisely. There's four element types that a property may consist of: *Object name*, *Object path*, *Component type* and *Property name*. These elements may be split accross row and column headers which allows you to compose sophisticated table layouts like this one:
 
 ::image::
 

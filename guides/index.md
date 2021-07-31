@@ -1,7 +1,7 @@
 ---
 title: Guides
 has_children: true
-nav_order: 1
+nav_order: 2
 ---
 # Guides
 This section describes basic workflow that you follow when using Game Tables.
