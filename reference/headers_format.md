@@ -7,10 +7,14 @@ nav_order: 1
 
 When Game Tables sees a value in a table cell, it should determine to which property of which object it should be applied. To do so, it checks the content of the row and column headers corresponding to this cell.
 
+As a general rule, you may think that a row header locates an object and a column header locates a property inside this object.
+
+> You may flip the table by setting *Orientation* property of a *Game Table* to *Object per Column*. The documentation always refers to row and column headers supposing than *Orientation* is set to its default value — *Object per Row*.
+
 ## Row Headers
 
 The full syntax of a row header is following:
-> **Prefab Name** [ / [**Game Object Name**] [<**Component Type**>] [**Property Prefix**]]
+> **Prefab Name** [ / [*Game Object Name*] [<*Component Type*>] [*Property Prefix*]]
 
 A row header should conform the following rules:
 * Must contain a *Prefab Name*
@@ -19,38 +23,45 @@ A row header should conform the following rules:
 * May contain a prefix for *Property Path* if the column header does not contain *Game Object Name* or *Component Type*
 
 Examples:
-
 * Player
-* BigSoldier / Gun
-* YellowCar / FrontLeftWheel \<RigidBody\>
-* PlasmaGun / \<Shooter\> Patterns[0].Offset
+* Big Soldier / Gun
+* Yellow Car / Front Left Wheel \<Rigid Body\>
+* Plasma Gun / \<Shooter\> Patterns[0].Offset
+
+Notice the **/** separator between *Prefab Name* and the following header components. It's required if a row header contains any components besides *Prefab Name*. Otherwise it would be impossible to distinguish the extra components from *Prefab Name* due to whitespace-insensitivity of Game Tables.
 
 More details on specific header components see in [Header Components](#header-components).
 
 ## Column Headers
 
+The full syntax of a column header is following:
+> [*Game Object Name*] [<*Component Type*>] **Property Path**
+
+A column header should conform the following rules:
 * Must contain a *Property Path* or its suffix
-* May contain *Game Object Name* or *Component Type*
+* May contain *Game Object Name* if the row header does not contain it nor *Component Type*
+* May contain *Component Type* if the row header does not contain it
+
+Examples:
+* Health
+* \<Clip\> Ammo
+* Spawn Point 1 / \<Spawner\> Offset.X
 
 ## Header Components
 
-There are four types of components that may be used in row and column headers: *Prefab Name*, *Game Object Name*, *Component Type* and *Property Path*. 
+There are four types of components that may be used in row and column headers: *Prefab Name*, *Game Object Name*, *Component Type* and *Property Path*.
 
-**TODO is the following needed?**
+An important thing is that these components *always* go in order, i.e. you cannot specify *Component Type* after *Property Path*. This rule is applyable even when these components split between row and column headers. In this case the row header is considered as a prefix for the column header.
 
-These locators may be split between row and column headers in various proportion:
-
-::image::
-
-All the components should go in order but only the *Object name* and *Property name* are required. So the following are examples of valid headers:
-
-::image::
+The only required components that any cell should contain are *Prefab Name* and *Property Path*.
 
 It does not matter for Game Tables how exactly you split the required components by row and column headers. So, the following compositions actually refer the same property:
 
-::image::
+| Player / Gun \<Clip\> Bursts[0] | Pellet Count |
 
-**TODO explain what Game Tables does for duplicates**
+| Player / Gun \<Clip\> | Bursts[0].Pellet Count |
+
+| Player | Gun \<Clip\> Bursts[0].Pellet Count |
 
 ### Prefab Name
 
