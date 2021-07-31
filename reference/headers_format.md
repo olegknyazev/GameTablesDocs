@@ -63,23 +63,69 @@ It does not matter for Game Tables how exactly you split the required components
 
 | Player | Gun \<Clip\> Bursts[0].Pellet Count |
 
+The following subsections describes header component types in details.
+
 ### Prefab Name
 
-Object name locates Prefab or Scriptable Object inside the project. It's a simple name that Game Tables looking for in the Search Path specified in a Game Table object. It should not contain file extension or any hierarchical components.
+*Prefab Name* locates a prefab or a scriptable object inside the project. Game Tables searches for this name recursively starting from the directory specified in the *Search Path* property of a *Game Table* object.
+
+A *Prefab Name* should be a simple name, it cannot contain any hierarchy.
+
+A *Prefab Name* must be specified in a row header.
+
+Examples:
+* Burst Rifle
+* Level 1 AI Settings
 
 ### Game Object Name
 
-Subobject path locates a Game Object inside a prefab. It's only appliable to prefabs, when applying a property to a Scriptable Object, it's a mistake to include subobject path.
+*Game Object Name* path locates a Game Object inside a prefab. Game Tables searches for this name recursively starting from the prefab's root game object.
 
-Subobject path is a hierarchical name
+*Game Object Name* is only appliable to prefabs, it should not be used in cells that target scriptable objects.
+
+*Game Object Name* should be a simple name, it cannot contain any hierarchy.
+
+*Game Object Name* is optional, you may omit it from both row and column headers.
+
+Example:
+* Spawn Point 1
+* Muzzle
 
 **TODO is partial matching supported here?**
 
 ### Component Type
 
-Component type restricts a property to specific component of a Game Object.
+*Component Type* locates a component inside a game object. Because game object may contain several component, a simple property name may be ambiguous. So, *Component Type* allows you to specify to which exactly component the property should be applied.
 
-### Property Name
+*Component Type* is only appliable to prefabs, it should not be used in cells that target scriptable objects.
+
+When *Game Object Name* is not specified, Game Tables searches for the required component and property combination in all the game objects inside a prefab.
+
+*Component Type* is optional, you may omit it from both row and column header.
+
+To distinguish *Component Type* from other components (classifiers?) it's enclosed in angle brackets. Example:
+* \<Rigid Body\>
+* \<Enemy Brain\>
+
+### Property Path
+
+*Property Path* locates a specific property inside a component or scriptable object. *Property Path* may be hierarchical and contain array indexers and [wildcard indexers](#wildcard-indexers).
+
+A *Property Path* may be combined from row and column headers. In this case content of a column header is added to the end of the row header:
+
+| Row Header | Column Header | Result
+|-|-|-
+| Position      | X             | Position.X
+| Patterns[0]   | Spread.Power  | Patterns[0].Spread.Power
+
+*You may notice that in some cases the **.** separator was added to the result to disnguish path elements.*
+
+A *Property Path* or its suffix must be specified in a column header.
+
+Examples:
+* Position.X
+* Waves[0].Enemies to Spawn
+* Spawn Points[*].Position
 
 ## Case- and Whitespace Sensitivity
 
@@ -91,3 +137,5 @@ All the path components are both case- and whitespace insensitive. When looking 
 ## Partial Matching
 
 When matching a property path against an actual objects and properties ...
+
+## Wildcard Indexers
