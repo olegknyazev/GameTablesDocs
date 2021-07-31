@@ -18,11 +18,16 @@ Game Tables applies two-dimensional data to object hierarchies. To do so, it som
 
 A table in Game Tables always have a row header, a column header and content:
 
-::image::
+|                 | Column Headers |
+|:---------------:|:--------------:|
+| **Row Headers** | Content        |
 
 Content contains actual data that is applied to target objects' properties. Headers contain information that allows Game Table to figure out to which exactly property of which exactly object the data should be applied. In the simplest form column header contains a name of an object in your project and a row header contains a property name:
 
-::image::
+|          | Health | Damage |
+|:---------|-------:|-------:|
+| Player   | 120    | 35     |
+| Enemy    | 90     | 20     |
 
 But actually both headers may contain more information that allow you to select a property more precisely. There's four components by using which Game Tables locates an object and a property to modify: *Object name*, *Object path*, *Component type* and *Property name*. These components may be split accross row and column headers which allows you to compose sophisticated table layouts like this one:
 

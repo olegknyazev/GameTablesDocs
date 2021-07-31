@@ -5,11 +5,40 @@ nav_order: 1
 ---
 # Headers Format
 
-When Game Tables sees a value in a table cell, it should determine to which property of which object it should be applied. To do so, it checks the content of the row and column headers corresponding to this cell. The headers may contain one or more *path components*.
+When Game Tables sees a value in a table cell, it should determine to which property of which object it should be applied. To do so, it checks the content of the row and column headers corresponding to this cell.
 
-## Path components
+## Row Headers
 
-There are four types of path compnents: *Object name*, *Subobject path*, *Component type* and *Property name*. These components may be split between row and column headers in various proportion:
+The full syntax of a row header is following:
+> **Prefab Name** [ / [**Game Object Name**] [<**Component Type**>] [**Property Prefix**]]
+
+A row header should conform the following rules:
+* Must contain a *Prefab Name*
+* May contain a *Game Object Name* if the column header does not contain it
+* May contain a *Component Type* if the column header does not contain it nor *Game Object Name*
+* May contain a prefix for *Property Path* if the column header does not contain *Game Object Name* or *Component Type*
+
+Examples:
+
+* Player
+* BigSoldier / Gun
+* YellowCar / FrontLeftWheel \<RigidBody\>
+* PlasmaGun / \<Shooter\> Patterns[0].Offset
+
+More details on specific header components see in [Header Components](#header-components).
+
+## Column Headers
+
+* Must contain a *Property Path* or its suffix
+* May contain *Game Object Name* or *Component Type*
+
+## Header Components
+
+There are four types of components that may be used in row and column headers: *Prefab Name*, *Game Object Name*, *Component Type* and *Property Path*. 
+
+**TODO is the following needed?**
+
+These locators may be split between row and column headers in various proportion:
 
 ::image::
 
@@ -23,15 +52,15 @@ It does not matter for Game Tables how exactly you split the required components
 
 **TODO explain what Game Tables does for duplicates**
 
-### Object Name
+### Prefab Name
 
-Object name locates Prefab or Scriptable Object inside the project. It's a simple name that Game Tables looking for in Search Path specified in Game Table object. It should not contain file extension or any hierarchical components.
+Object name locates Prefab or Scriptable Object inside the project. It's a simple name that Game Tables looking for in the Search Path specified in a Game Table object. It should not contain file extension or any hierarchical components.
 
-### Subobject Path
+### Game Object Name
 
-Subobject path locates a Game Object inside a prefab. It's only appliable to prefab object, when applying property to a Scriptable Object, it's a mistake to include subobject path.
+Subobject path locates a Game Object inside a prefab. It's only appliable to prefabs, when applying a property to a Scriptable Object, it's a mistake to include subobject path.
 
-Subobject path contains of Game Object names that forms ...
+Subobject path is a hierarchical name
 
 **TODO is partial matching supported here?**
 
