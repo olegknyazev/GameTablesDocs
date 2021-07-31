@@ -33,4 +33,4 @@ But actually both headers may contain more information that allow you to select 
 
 ::image::
 
-Detailed description of headers format see in [Headers Format]({{ site.baseurl }}{% link reference/headers_format.md %}).
+Detailed description of headers format see in [Headers Format]({{ site.baseurl }}{% link reference/headers_format/index.md %}).

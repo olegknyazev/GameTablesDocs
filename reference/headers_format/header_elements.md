@@ -1,53 +1,10 @@
 ---
-parent: Reference
-title: Headers Format
+grand_parent: Reference
+parent: Headers Format
+title: Header Elements
 nav_order: 1
 ---
-# Headers Format
-
-When Game Tables sees a value in a table cell, it should determine to which property of which object it should be applied. To do so, it checks the content of the row and column headers corresponding to this cell.
-
-As a general rule, you may think that a row header locates an object and a column header locates a property inside this object.
-
-> You may flip the table by setting *Orientation* property of a *Game Table* to *Object per Column*. The documentation always refers to row and column headers supposing than *Orientation* is set to its default value — *Object per Row*.
-
-## Row Headers
-
-The full syntax of a row header is following:
-> **Prefab Name** [ / [*Game Object Name*] [<*Component Type*>] [*Property Prefix*]]
-
-A row header should conform the following rules:
-* Must contain a *Prefab Name*
-* May contain a *Game Object Name* if the column header does not contain it
-* May contain a *Component Type* if the column header does not contain it nor *Game Object Name*
-* May contain a prefix for *Property Path* if the column header does not contain *Game Object Name* or *Component Type*
-
-Examples:
-* Player
-* Big Soldier / Gun
-* Yellow Car / Front Left Wheel \<Rigid Body\>
-* Plasma Gun / \<Shooter\> Patterns[0].Offset
-
-Notice the **/** separator between *Prefab Name* and the following header elements. It's required if a row header contains any elements besides *Prefab Name*. Otherwise it would be impossible to distinguish the extra elements from *Prefab Name* due to whitespace-insensitivity of Game Tables.
-
-More details on specific header elements see in [Header Elements](#header-elements).
-
-## Column Headers
-
-The full syntax of a column header is following:
-> [*Game Object Name*] [<*Component Type*>] **Property Path**
-
-A column header should conform the following rules:
-* Must contain a *Property Path* or its suffix
-* May contain *Game Object Name* if the row header does not contain it nor *Component Type*
-* May contain *Component Type* if the row header does not contain it
-
-Examples:
-* Health
-* \<Clip\> Ammo
-* Spawn Point 1 / \<Spawner\> Offset.X
-
-## Header Elements
+# Header Elements
 
 There are four types of elements that may be used in row and column headers: *Prefab Name*, *Game Object Name*, *Component Type* and *Property Path*.
 
@@ -65,7 +22,7 @@ It does not matter for Game Tables how exactly you split the required elements b
 
 The following subsections describes header element types in details.
 
-### Prefab Name
+## Prefab Name
 
 *Prefab Name* locates a prefab or a scriptable object inside the project. Game Tables searches for this name recursively starting from the directory specified in the *Search Path* property of a *Game Table* object.
 
@@ -77,7 +34,7 @@ Examples:
 * Burst Rifle
 * Level 1 AI Settings
 
-### Game Object Name
+## Game Object Name
 
 *Game Object Name* path locates a Game Object inside a prefab. Game Tables searches for this name recursively starting from the prefab's root game object.
 
@@ -93,7 +50,7 @@ Example:
 
 **TODO is partial matching supported here?**
 
-### Component Type
+## Component Type
 
 *Component Type* locates a component inside a game object. Because game object may contain several components, a simple property name may be ambiguous. So, *Component Type* allows you to specify to which exactly component the property should be applied.
 
@@ -107,7 +64,7 @@ To distinguish *Component Type* from other elements it's enclosed in angle brack
 * \<Rigid Body\>
 * \<Enemy Brain\>
 
-### Property Path
+## Property Path
 
 *Property Path* locates a specific property inside a component or scriptable object. *Property Path* may be hierarchical and contain array indexers and [wildcard indexers](#wildcard-indexers).
 
@@ -126,16 +83,3 @@ Examples:
 * Position.X
 * Waves[0].Enemies to Spawn
 * Spawn Points[*].Position
-
-## Case- and Whitespace Sensitivity
-
-All the path elements are both case- and whitespace insensitive. When looking for an object or its property, Game Tables converts both actual property name and the name, specified in a table, to lower registry and removes all the whitespace. After this comparison happen. So, all the following property paths actually refer to the same property:
-- `Cluster Mine / <Spreading Spawner> Targets[0].Offset.X`
-- `ClusterMine/<SpreadingSpawner>Targets[0].Offset.X`
-- `clustermine/<spreadingspawner>targets[0].offset.x`
-
-## Partial Matching
-
-When matching a property path against an actual objects and properties ...
-
-## Wildcard Indexers
