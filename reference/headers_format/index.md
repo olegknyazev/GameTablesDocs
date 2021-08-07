@@ -10,7 +10,8 @@ When Game Tables sees a value in a table cell, it should determine to which prop
 
 As a general rule, you may think that a row header locates an object and a column header locates a property inside this object.
 
-> You may flip the table by setting *Orientation* property of a *Game Table* to *Object per Column*. The documentation always refers to row and column headers supposing than *Orientation* is set to its default value — *Object per Row*.
+
+| You may flip the table by setting *Orientation* property of a *Game Table* to *Object per Column*. The documentation always refers to row and column headers supposing than *Orientation* is set to its default value — *Object per Row*.|
 
 ## Row Headers
 
