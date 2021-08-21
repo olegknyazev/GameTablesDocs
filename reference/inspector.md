@@ -80,3 +80,9 @@ Array Update Policy
   One important thing that you should know about these update modes is that applying property in *Replace Whole Array* mode is stable: it does not depend on previous state of the property and the result is always the same.
 
   The default value is **Replace Whole Array**.
+
+Update Targets
+
+: Updates all the properties referenced from this Game Table. If something goes wrong during the update, an error message is shown in the Console window and the state of all the affected objects is reverted as it was before update. An update may be reverted in a single step by Unity's Undo menu.
+
+  After an update all the affected prefabs are *not saved* automatically. You need to run *File / Save Project* to persist the changes.
