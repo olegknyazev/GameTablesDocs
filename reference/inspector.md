@@ -69,16 +69,6 @@ Array Update Policy
   - **Replace Specific Elements**
     In this mode, if an array property is referenced from a table, only referenced cells are replaced.
 
-  Consider the following table:
-
-  |          | Array[1] | Array[3] |
-  |:---------|---------:|---------:|
-  | Prefab   | 8        | 9        |
-
-  Suppose, that before the update Array property of the Prefab object has value `[1, 2, 3, 4, 5]`. After update in *Replace Whole Array* mode it will have value `[0, 8, 0, 9]`. After update in *Replace Specific Elements* mode it will have value `[1, 8, 3, 9, 5]`.
-  
-  One important thing that you should know about these update modes is that applying property in *Replace Whole Array* mode is stable: it does not depend on previous state of the property and the result is always the same.
-
   The default value is **Replace Whole Array**.
 
 Update Targets
