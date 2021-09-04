@@ -5,6 +5,7 @@ title: Matching Rules
 nav_order: 2
 ---
 # Matching Rules
+
 There are several general rules that Game Tables follow when searching for an object's property.
 
 All the search process may be divided into two phases:
@@ -22,7 +23,7 @@ All the path elements are both case- and whitespace insensitive. When looking fo
 
 ## Partial Matching
 
-When looking for a property (phase 2 from the introductory section) Game Tables performs partial matching. That means that the actual property path may be not exactly equal to the property path specified in row and column headers. It's enough if just a part of the property path matches while it's a unique match, i.e. exactly one property in the whole prefab (or scriptable object) matches.
+When looking for a property Game Tables performs partial matching. That means that the actual property path may be not exactly equal to the property path specified in row and column headers. It's enough if just a part of the property path matches while it's a unique match, i.e. exactly one property in the whole prefab (or scriptable object) matches.
 
 You may think of this process as if Game Tables collects all the paths of actual properties of the target object and then matches them all against the sought-for property. When matching a property it starts from the rightmost part of a property path. For example, consider that we have a prefab with the following properties (across all the componented of all the game objects):
 
@@ -38,7 +39,7 @@ We can refer to the second property by any of these paths:
 - Pattern.Offset.X
 - Offset.X
 
-Or even just X (but that'a a bad idea in real world because each game object has a Transform component with more than one .X properties). But we cannot refer property 3 by just HitPoints because it's ambiguous: HitPoints may refer both the third of fourth property.
+Or even just X (but that'a a bad idea in real world because each game object has a Transform component with more than one X properties). But we cannot refer property 3 by just HitPoints because it's ambiguous: HitPoints may refer both the third of fourth property.
 
 So, a general rule of partial matching is that you may omit the leftmost part of the property path until it's ambiguous.
 

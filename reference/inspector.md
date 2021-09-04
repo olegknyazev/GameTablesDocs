@@ -83,6 +83,6 @@ Array Update Policy
 
 Update Targets
 
-: Updates all the properties referenced from this Game Table. If something goes wrong during the update, an error message is shown in the Console window and the state of all the affected objects is reverted as it was before update. An update may be reverted in a single step by Unity's Undo menu.
+: Updates all the properties referenced from this Game Table. If something goes wrong during the update, an error message is shown in the Console window and all the affected objects are reverted to the state they have before update. A successful update may be reverted in a single step by Unity's Undo menu.
 
   After an update all the affected prefabs are *not saved* automatically. You need to run *File / Save Project* to persist the changes.
