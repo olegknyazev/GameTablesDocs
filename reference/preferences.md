@@ -4,4 +4,10 @@ title: Preferences
 nav_order: 4
 ---
 # Preferences
-Here will be explained Preferences window.
+![Game Tables Inspector UI]({{ site.baseurl }}{% link reference/preferences.png %})
+
+## Google Sheets
+
+This section contains settings related to Google Sheets.
+
+The interface here depends on whether you already authorized in Google or not. 
