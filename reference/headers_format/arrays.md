@@ -6,7 +6,7 @@ nav_order: 3
 ---
 # Arrays
 
-Game Tables lets you to apply properties to arrays. To refer an array property square brackets are used:
+Game Tables lets you to apply properties to arrays. To refer an array element square brackets are used:
 
 - DamageByLevel**[2]**
 - FirePatterns**[1]**.Offset.X
@@ -31,7 +31,7 @@ After applying the upper table the following property values will be applied:
 
 This feature works especially good with [Wildcard Indexes](#wildcard-indexes).
 
-Like in Unity arrays in Game Tables are zero-based.
+Like in Unity, arrays in Game Tables are zero-based.
 
 ## Array Update Modes
 
@@ -45,23 +45,23 @@ Consider the following table:
 
 After applying, Prefab's Array property will contain the following elements: **0**, **8**, **0**, **9**. 
 
-This behaviour may be overriden by *Array Update Policy* property. The described above behaviour coressponds to *Replace Whole Array* mode which is set by default.
+This behaviour may be overriden by the *Array Update Policy* property. The described above behaviour coressponds to *Replace Whole Array* mode which is set by default.
 
 The alternative mode is *Replace Specific Elements*. In this mode Game Tables replaces only those elements that are referenced from a table. Suppose that Prefab's Array property had value **1**, **2**, **3**, **4**, **5** before applying the table. Then after applying the table it will have value *1*, **8**, *3*, **9**, *5*.
 
-One important thing that you should know about these update modes is that applying property in *Replace Whole Array* mode is stable: it does not depend on previous state of the property and the result is always the same.
+One important thing that you should know about these update modes is that applying property in *Replace Whole Array* mode is stable: it does not depend on the previous state of the property and the result is always the same.
 
 ## Wildcard Indices
 
-Specifying indices for all the array elements may be cumbersome and error-prone. So Game Tables provides a shortcut syntax for refering a bunch of array elements at once. To do so, append ***** symbol after index number in array property:
+Specifying indices for every element of array may be cumbersome and error-prone. So Game Tables provides a shortcut syntax for referring a bunch of array elements at once. To do so, append **\*** symbol after index number in array property:
 
 - DamageByLevel**[2*]**
 - FirePatterns**[1*]**.Offset.X
 
 The index number may be ommited entirely, in this case zero will be used. So the following notations are equivalent:
 
-- Level[0*]
-- level[*]
+- Level**[0*]**
+- level**[*]**
 
 These indices are named wildcard indices. When a wildcard index is used in either row or column header, all the following *empty* header cells are considered as a continuation of this array:
 
@@ -77,12 +77,14 @@ The above table is interpreted as following:
 - Germany / Flag Colors = [Black, Red, Yellow]
 - Germany / Primary Language = German
 
-| To ignore cells containing **-** *No Value Marked* property may be used. |
+| The above supposes that the *No Value Marked* property is set to  "**-**". |
 
-You may use wildcards in both column and row headers in a single table which allows to express two-dimensional data:
+You may use wildcards in both column and row headers in a single table to express two-dimensional data:
 
 |           | Enemies To Spawn[*] |           |          |
 |:----------|--------------------:|----------:|---------:|
 | Waves[*]  | Zombie              |           |          |
 |           | Zombie              | Spider    |          |
 |           | Zombie              | Spider    | Gorgoyle |
+
+The above example produces three elements in *Waves* array each of which contains up to three *Enemies To Spawn*.
