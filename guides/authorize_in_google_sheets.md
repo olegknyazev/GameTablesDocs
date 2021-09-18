@@ -1,7 +1,6 @@
 ---
-parent: Reference
-title: Google Sheets Authorization
-nav_order: 5
+parent: Guides
+nav_order: 3
 ---
 # Authorize In Google Sheets
 

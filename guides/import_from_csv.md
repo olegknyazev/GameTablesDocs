@@ -1,6 +1,6 @@
 ---
 parent: Guides
-nav_order: 2
+nav_order: 1
 ---
 # Import from CSV
 To set up importing from a CSV file, perform the following actions:
