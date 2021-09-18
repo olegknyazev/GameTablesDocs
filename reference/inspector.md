@@ -6,11 +6,11 @@ nav_order: 3
 # Inspector
 ![Game Tables Inspector UI]({{ site.baseurl }}{% link reference/inspector.png %})
 
-Source
+<a id="source"></a> Source
 
 : Determines type of table data source. Currently CSV files and Google Sheets documents are supported. The following parameters depend on selected value.
 
-Spreadsheet Id
+<a id="spreadsheet-id"></a> Spreadsheet Id
 
 : An identifier of a Google Sheets document to import. Spreadsheet Id looks like a long sequence of letters and numbers. You may paste the entire URL of an Google Sheets document from the browser address bar—the interesting part will be extracted automatically.
 
@@ -42,9 +42,11 @@ Layout
 
   To make part of a table an island, separate it from surroundings by a border of empty cells.
 
-Search Path
+<a id="search-path"></a> Search Path
 
-: Specifies the root folder for searching assets that are referenced in table. This folder is used for both target prefabs and referenced prefabs.
+: Specifies the root folder for searching assets that are referenced from a table. The path is relative to the project root folder and usually starts with *Assets/* (i.e. *Assets/Prefabs/Buildings*).
+
+  This folder is used for assets specified in either header or content rows. For more on referencing assets from another assets see [Data Types]().
 
 No Value Marker
 
@@ -71,7 +73,7 @@ Array Update Policy
 
   The default value is **Replace Whole Array**.
 
-Update Targets
+<a id="update-targets"></a> Update Targets
 
 : Updates all the properties referenced from this Game Table. If something goes wrong during the update, an error message is shown in the Console window and all the affected objects are reverted to the state they have before update. A successful update may be reverted in a single step by Unity's Undo menu.
 
