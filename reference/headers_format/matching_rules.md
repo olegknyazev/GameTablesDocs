@@ -1,7 +1,6 @@
 ---
 grand_parent: Reference
 parent: Headers Format
-title: Matching Rules
 nav_order: 2
 ---
 # Matching Rules

@@ -1,7 +1,6 @@
 ---
 grand_parent: Reference
 parent: Headers Format
-title: Header Elements
 nav_order: 1
 ---
 # Header Elements

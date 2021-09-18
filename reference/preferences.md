@@ -1,6 +1,5 @@
 ---
 parent: Reference
-title: Preferences
 nav_order: 4
 ---
 # Preferences

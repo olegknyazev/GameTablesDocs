@@ -1,7 +1,6 @@
 ---
 grand_parent: Reference
 parent: Headers Format
-title: Arrays
 nav_order: 3
 ---
 # Arrays
