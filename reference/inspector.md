@@ -32,7 +32,7 @@ Sheets to Import
 
 Orientation
 
-: Determines how to interpret column and row headers. The default mode is *Object Per Row* in which case row headers are considered as prefab names (with optional property prefixes) and column headers are considered as property names. The *Property Per Row* mode "flips" the table. More on row and columns headers see in [Headers Format]({{ site.baseurl }}{% link reference/headers_format/index.md %}).
+: Determines how to interpret column and row headers. The default mode is *Object Per Row* in which case row headers are considered Prefab names (with optional property prefixes) and column headers are considered as property names. The *Property Per Row* mode "flips" the table. More on row and columns headers see in [Headers Format]({{ site.baseurl }}{% link reference/headers_format/index.md %}).
 
 Layout
 
@@ -59,7 +59,7 @@ No Value Marker
   | Archer   | 120    | 35             | 14          |
   | Knight   | 90     | 20             | -           |
 
-  In the above example Knight prefab does not have Fire Range property so it's an error to specify Fire Range for Knight. But if you put a special *No Value Marker* value into the Fire Range cell, Game Table will ignore it.
+  In the above example Knight Prefab does not have Fire Range property so it's an error to specify Fire Range for Knight. But if you put a special *No Value Marker* value into the Fire Range cell, Game Table will ignore it.
 
 Array Update Policy
 
@@ -77,4 +77,4 @@ Array Update Policy
 
 : Updates all the properties referenced from this Game Table. If something goes wrong during the update, an error message is shown in the Console window and all the affected objects are reverted to the state they have before update. A successful update may be reverted in a single step by Unity's Undo menu.
 
-  After an update all the affected prefabs are *not saved* automatically. You need to run *File / Save Project* to persist the changes.
+  After an update all the affected Prefabs are *not saved* automatically. You need to run *File / Save Project* to persist the changes.

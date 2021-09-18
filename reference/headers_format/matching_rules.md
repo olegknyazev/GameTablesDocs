@@ -9,7 +9,7 @@ nav_order: 2
 There are several general rules that Game Tables follow when searching for an object's property.
 
 All the search process may be divided into two phases:
-1. Look for a matching prefab or scriptable object in Project tree. The only header element that's considered at this stage is *Prefab Name*.
+1. Look for a matching [Prefab](https://docs.unity3d.com/Manual/Prefabs.html) or [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html) in Project tree. The only header element that's considered at this stage is *Prefab Name*.
 2. Look for a matching property of some of components and game objects. *Game Object Name*, *Component Type* and *Property Path* are considered at this stage.
 
 During any of the phases if Game Tables finds more than one matching entity, an error occurs and the update process interrupts.
@@ -23,9 +23,9 @@ All the path elements are both case- and whitespace insensitive. When looking fo
 
 ## Partial Matching
 
-When looking for a property Game Tables performs partial matching. That means that the actual property path may be not exactly equal to the property path specified in row and column headers. It's enough if just a part of the property path matches while it's a unique match, i.e. exactly one property in the whole prefab (or scriptable object) matches.
+When looking for a property Game Tables performs partial matching. That means that the actual property path may be not exactly equal to the property path specified in row and column headers. It's enough if just a part of the property path matches while it's a unique match, i.e. exactly one property in the whole Prefab (or ScriptableObject) matches.
 
-You may think of this process as if Game Tables collects all the paths of actual properties of the target object and then matches them all against the sought-for property. When matching a property it starts from the rightmost part of a property path. For example, consider that we have a prefab with the following properties (across all the componented of all the game objects):
+You may think of this process as if Game Tables collects all the paths of actual properties of the target object and then matches them all against the sought-for property. When matching a property it starts from the rightmost part of a property path. For example, consider that we have a Prefab with the following properties (across all the componented of all the game objects):
 
 1. Root \<Transform\> Position
 2. Weapon \<Shooter\> Pattern.Offset.X
