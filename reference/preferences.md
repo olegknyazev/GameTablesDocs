@@ -1,6 +1,6 @@
 ---
 parent: Reference
-nav_order: 4
+nav_order: 5
 ---
 # Preferences
 ![Game Tables Inspector UI]({{ site.baseurl }}{% link reference/preferences.png %})

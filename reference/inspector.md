@@ -1,6 +1,6 @@
 ---
 parent: Reference
-nav_order: 3
+nav_order: 4
 ---
 # Inspector
 ![Game Tables Inspector UI]({{ site.baseurl }}{% link reference/inspector.png %})
