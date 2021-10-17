@@ -7,31 +7,35 @@ Game Tables can apply data to properties of various types: integer and floating 
 
 | Game Tables uses underlying Unity's serialization to apply properties to Prefabs and ScriptableObjects. So all the types listen here have corresponding types in the underlying system. See [SerializedPropertyType](https://docs.unity3d.com/ScriptReference/SerializedPropertyType.html) for more details. |
 
-## Localization Settings
+## Regional Settings And Formatting
 Format of some data, for example floating point numbers, may differ from one language to another. To simplify things and reduce chances for mistakes Game Tables requires that all the source data is formatted in USA locale (en_US). If you import from Google Sheets, the target spreadsheet should have according locale (you may check it out in the File / Spreadsheet Settings dialog). If you import from CSV, the CSV should be formatted in USA locale, i.e. it should use dot as decimal point separator.
 
-## Strings
+## How Types Are Used
+It's important to understand that Game Tables does not try to interpret table cells per se. When importing from either Google Sheets or CSV all the data is just strings. Actual type is determined by the type of the target property. When Game Tables applies a cell to a concrete property it tries to interpret the cell value as a value of type required by that property. For example, if you are applying value "true" to a boolean property, then the property will get the truth value. But if you're applying the same cell to a string property, the resulting property will have "true" value.
+
+## Supported Types
+### Strings
 String is used as is, no trimming nor other transformations take place when applying a cell value to a string property.
 
-## Booleans
-Boolean has two values. "True" and "yes" are interpreted as true, "false" and "no" are interpreted as false. When checking values case and whitespace is ignored. Examples of booleans:
+### Booleans
+Boolean has two values. "True" and "yes" are interpreted as true, "false" and "no" are interpreted as false. When checking values case and whitespace are ignored. Examples of booleans:
 - Yes
 -  no
 - TRUE
 
-## Integer Numbers
+### Integer Numbers
 Integer number may contain comma as optional thousands separator. Examples of integer numbers:
 - 24,700
 - 56
 
-## Floating Point Numbers
+### Floating Point Numbers
 Floating point number use dot as decimal separator. It also may be written in exponential form also known as scientific notation. Examples of floating point numbers:
 - 3.5
 - 2,500.49
 - 0.471E+2
 - -2.6E-3
 
-## Vectors
+### Vectors
 Vectors are collections of integer or floating point numbers. Game Tables expects semicolon or comma as a component separator. Semicolon is a safer option because it allows you to still use commas as thousand separators.
 
 There are 5 combinations of vector types in Unity which differ by type of component (integer or floating point) and the number of components: Vector2, Vector2Int, Vector3, Vector3Int and Vector4. You may express any of them in Game Tables.
@@ -44,14 +48,14 @@ Examples of vectors:
 - 4,500; 2,000; 16
 - (0.567E+2; 15.6; -2; 0.0)
 
-## Quaternions (Rotations)
+### Quaternions (Rotations)
 Quaternion in Game Tables is expressed in the same way as in Unity Editor — as euler angles. It's a triplet of numbers each of which determines rotations around a specific axis: pitch, yaw, roll. As in Unity, rotation is specified in degrees. The format of a quaternion is equal to the format of three-component floating-point vector.
 
 Examples of quaternions:
 - 0, 45, 0
 - (5.63; 120; -31.2)
 
-## Colors
+### Colors
 There are several forms that colors in Game Tables may look like. 
 
 1. First of all, a color may be expressed as either three or four component vector. Components are floating point numbers from 0 to 1 which define the value of red, green and blue channels. If fourth component is present, it defines the opacity of a color.
@@ -66,6 +70,19 @@ Examples of colors:
 - #56FE20
 - magenta
 
-## Enumerations
+### Enumerations
+Enumerated properties can have a value from a predefined set of values. To specify value for an enumerated property, just write the name of value. In Unity some enumerations also lets you to specify more than one value (`[Flags]` enums in C# terms). To specify several values for a flags property, separate names of these values by commas. Case and whitespace is ignored when comparing names. 
 
-## Asset References
+Examples of enumerations:
+- Off
+- Blend Probes
+- Walk, Run, Swim
+
+### Asset References
+Sometimes one Prefab or Scriptable Object references another. To set up such a property from a table, just write the name of the prefab. The referenced prefab is looked in the same folder where Game Tables looks for the target object (to which we're applying properties). This folder is specified by [Search Path]({{ site.baseurl }}{% link reference/inspector.md %}#search-path) property.
+
+| As with [Prefab Names]({{ site.baseurl }}{% link reference/headers_format/header_elements.md %}#prefab-name), asset references should be simple names without any hierarchy. It means that you cannot, for example, specify "Explosions / BigOne" as reference, you have write just "BigOne" which may be ambiguous. So you have to either give more specific names to assets or set a more restrictive Search Path. |
+
+Examples of asset references:
+- Big Explosion
+- Level 1 Settings

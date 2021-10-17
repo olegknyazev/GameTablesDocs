@@ -45,7 +45,7 @@ Layout
 
 : Specifies the root folder for searching assets that are referenced from a table. The path is relative to the project root folder and usually starts with *Assets/* (i.e. *Assets/Prefabs/Buildings*).
 
-  This folder is used for assets specified in either header or content rows. For more on referencing assets from another assets see [Data Types]().
+  This folder is used for assets specified in either header or content rows. More on referencing assets from another assets see in [Asset References]({{ site.baseurl }}{% link reference/data_types.md %}#asset-references).
 
 No Value Marker
 
