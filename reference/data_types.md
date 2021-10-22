@@ -70,6 +70,13 @@ Examples of colors:
 - #56FE20
 - magenta
 
+### Rectangles
+Rectangle is determined by four integer or floating point numbers: x, y, width and height. To set a rectangle value from a table, write four numbers separated by a semicolon (or comma).
+
+Examples of rectangles:
+- 0, 0, 100, 50
+- 15.2; 0; 57.92; 560
+
 ### Enumerations
 Enumerated properties can have a value from a predefined set of values. To specify value for an enumerated property, just write the name of value. In Unity some enumerations also lets you to specify more than one value (`[Flags]` enums in C# terms). To specify several values for a flags property, separate names of these values by commas. Case and whitespace is ignored when comparing names. 
 
