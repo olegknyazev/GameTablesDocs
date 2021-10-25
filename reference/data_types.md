@@ -3,7 +3,7 @@ parent: Reference
 nav_order: 3
 ---
 # Data Types
-Game Tables can apply data to properties of various types: integer and floating point numbers, vectors, color. This section describes format of all the supported data types.
+Game Tables can apply data to properties of various types: integer and floating point numbers, vectors, colors. This section describes format of all the supported data types.
 
 | Game Tables uses underlying Unity's serialization to apply properties to Prefabs and ScriptableObjects. So all the types listen here have corresponding types in the underlying system. See [SerializedPropertyType](https://docs.unity3d.com/ScriptReference/SerializedPropertyType.html) for more details. |
 
