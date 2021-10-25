@@ -48,12 +48,16 @@ Examples of vectors:
 - 4,500; 2,000; 16
 - (0.567E+2; 15.6; -2; 0.0)
 
+Vector properties are [compound properties](#compound-properties), so you may refer components of a vector separately. For example, if you have a Vector3 property named Position, you can use Position.X to set it's X component.
+
 ### Quaternions (Rotations)
 Quaternion in Game Tables is expressed in the same way as in Unity Editor — as euler angles. It's a triplet of numbers each of which determines rotations around a specific axis: pitch, yaw, roll. As in Unity, rotation is specified in degrees. The format of a quaternion is equal to the format of three-component floating-point vector.
 
 Examples of quaternions:
 - 0, 45, 0
 - (5.63; 120; -31.2)
+
+Quaternion properties are [compound properties](#compound-properties), so you may also refer components of a quaternion separately. For example, if you have a Quaternion property named Rotation, you can use Rotation.Y to set it's Y component (yaw).
 
 ### Colors
 There are several forms that colors in Game Tables may look like. 
@@ -77,6 +81,11 @@ Examples of rectangles:
 - 0, 0, 100, 50
 - 15.2; 0; 57.92; 560
 
+Rectangle properties are [compound properties](#compound-properties). Regular (floating-point) rectangles have properties Center and Extent. Integer rectangles have properties Position and Size. All these properties are two-component vectors on its own. So, supposing we have a floating point rectangle property Area, all the following property names are valid:
+- Area
+- Area.Center
+- Area.Center.X
+
 ### Enumerations
 Enumerated properties can have a value from a predefined set of values. To specify value for an enumerated property, just write the name of value. In Unity some enumerations also lets you to specify more than one value (`[Flags]` enums in C# terms). To specify several values for a flags property, separate names of these values by commas. Case and whitespace is ignored when comparing names. 
 
@@ -93,3 +102,13 @@ Sometimes one Prefab or Scriptable Object references another. To set up such a p
 Examples of asset references:
 - Big Explosion
 - Level 1 Settings
+
+### Compound Properties
+Compound properties are properties that consist of more than one child element. Standard vectors and quaternions are compound types, but there are more of them and your project is likely use many custom compound types. By default compounds are displayed as expandable fields in Inspector. With exception of built-in compounds described in this topic, you cannot specify value for the entire compound property in a single table cell. But you may specify values for components of a compound. To refer a compound's component, use **.** delimeter:
+- AttackParameters.Damage
+- AttackParameters.Spread.Y
+- Rotation.Y
+
+| In C# compound types are struct or classes that are marked with `[Serializable]`. Game Tables also supports polymorphic serialization that's activated by `[SerializeReference]` annotation. |
+
+When speaking on built-in compounds (vectors, quaternions and rectables), keep in mind that you cannot specify both the entire vector and any of its components in tables that are applied together.
