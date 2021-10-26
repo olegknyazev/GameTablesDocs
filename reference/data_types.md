@@ -7,7 +7,7 @@ Game Tables can apply data to properties of various types: integer and floating 
 
 | Game Tables uses underlying Unity's serialization to apply properties to Prefabs and ScriptableObjects. So all the types listen here have corresponding types in the underlying system. See [SerializedPropertyType](https://docs.unity3d.com/ScriptReference/SerializedPropertyType.html) for more details. |
 
-## Regional Settings And Formatting
+## Regional Settings and Formatting
 Format of some data, for example floating point numbers, may differ from one language to another. To simplify things and reduce chances for mistakes Game Tables requires that all the source data is formatted in USA locale (en_US). If you import from Google Sheets, the target spreadsheet should have according locale (you may check it out in the File / Spreadsheet Settings dialog). If you import from CSV, the CSV should be formatted in USA locale, i.e. it should use dot as decimal point separator.
 
 ## How Types Are Used
@@ -102,6 +102,16 @@ Sometimes one Prefab or Scriptable Object references another. To set up such a p
 Examples of asset references:
 - Big Explosion
 - Level 1 Settings
+
+### Layer Masks
+[Layer](https://docs.unity3d.com/Manual/Layers.html) mask allows you to specify a set of layers which may be used to filter collisions, for example. To set a layer mask property from a table, write layers name in a list, using comma or semicolon separators:
+- Water
+- Enemy, EnemyProjectiles
+- Terrain; Buildings
+
+Empty cell means empty set—that's a set containing no elements.
+
+| As in any other place in Game Tables, layer names are case and whitespace insensitive, so Water and waTER means the same layer. If your project contains layers whose names clash when comparing them in case and whitespace insensitive way, you will got an error during the table application. In this case you should either not use Game Tables to specify these layers, or rename layers in [Tags and Layers](https://docs.unity3d.com/Manual/class-TagManager.html) window. |
 
 ### Compound Properties
 Compound properties are properties that consist of more than one child element. Standard vectors and quaternions are compound types, but there are more of them and your project is likely use many custom compound types. By default compounds are displayed as expandable fields in Inspector. With exception of built-in compounds described in this topic, you cannot specify value for the entire compound property in a single table cell. But you may specify values for components of a compound. To refer a compound's component, use **.** delimeter:
