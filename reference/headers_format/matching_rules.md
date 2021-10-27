@@ -13,7 +13,7 @@ All the search process may be divided into two phases:
 
 During any of the phases if Game Tables finds more than one matching entity, an error occurs and the update process interrupts.
 
-## Case- and Whitespace Sensitivity
+## Case and Whitespace Insensitivity
 
 All the path elements are both case- and whitespace insensitive. When looking for an object or its property, Game Tables converts both actual property name and the name, specified in a table, to lower registry and removes all the whitespace. After this comparison happen. So, all the following property paths actually refer the same property:
 - Cluster Mine / \<Spreading Spawner\> Targets [ 0 ] . Offset . X

@@ -7,7 +7,7 @@ nav_order: 1
 
 There are four types of elements that may be used in row and column headers: *Prefab Name*, *Game Object Name*, *Component Type* and *Property Path*.
 
-An important thing is that these elements *always* go in order, i.e. you cannot specify *Component Type* after *Property Path*. This rule is applyable even when these elements are split between row and column headers. In this case the row header is considered a prefix for the column header.
+An important thing is that these elements *always* go in order, i.e. you cannot specify *Component Type* after *Property Path*. This rule is applicable even when these elements are split between row and column headers. In this case the row header is considered a prefix for the column header.
 
 The only required elements that any cell should contain are *Prefab Name* and *Property Path*.
 
@@ -23,7 +23,7 @@ The following subsections describe header element types in details.
 
 ## Prefab Name
 
-*Prefab Name* locates a [Prefab](https://docs.unity3d.com/Manual/Prefabs.html) or a [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html) inside the project. Game Tables searches for this name recursively starting from the directory specified in the *Search Path* property of a *Game Table* object.
+*Prefab Name* locates a [Prefab](https://docs.unity3d.com/Manual/Prefabs.html) or a [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html) inside the project. Game Tables searches for this name recursively starting from the directory specified in the *Search Path* property of a GameTable object.
 
 Prefab Name should be a *simple* name, it cannot contain any hierarchy.
 

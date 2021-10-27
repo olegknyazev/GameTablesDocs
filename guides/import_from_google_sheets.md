@@ -4,8 +4,8 @@ nav_order: 2
 ---
 # Import From Google Sheets
 To set up importing from Google Sheets, perform the following actions:
-1. Create a Game Table object.
-2. Set up the Game Table object properties:
+1. Create a GameTable object.
+2. Set up the GameTable object properties:
     1. Choose *Google Sheets* in the [Source]({{ site.baseurl }}{% link reference/inspector.md %}#source) dropdown.
     2. Copy URL (link) of your Google Sheet table into the [Spreadsheet Id]({{ site.baseurl }}{% link reference/inspector.md %}#spreadsheet-id) field. The actual id will be extracted automatically. You also can paste just the id part here, if you like.
     3. If you're connecting Game Tables to Google Sheets for the first time, you will be asked to authorize in Google and grant Game Tables application read access for your Google Documents. See [Authorize In Google Sheets]({{ site.baseurl }}{% link guides/authorize_in_google_sheets.md %}) for details.

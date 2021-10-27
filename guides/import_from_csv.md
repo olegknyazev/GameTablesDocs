@@ -4,8 +4,8 @@ nav_order: 1
 ---
 # Import from CSV
 To set up importing from a CSV file, perform the following actions:
-1. Create a Game Table object.
-2. Set up Game Table object properties:
+1. Create a GameTable object.
+2. Set up the GameTable object properties:
     1. Choose CSV as Source.
     2. Specify a Text Asset from the project that will be interpreted as a CSV file.
     3. Specify where to search for prefabs whose properties should be updated by the data from CSV.

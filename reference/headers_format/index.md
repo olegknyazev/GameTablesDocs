@@ -10,7 +10,7 @@ When Game Tables sees a value in a table cell, it should determine to which prop
 As a general rule, you may think that a row header locates an object and a column header locates a property inside the object.
 
 
-| You may flip the table by setting *Orientation* property of a *Game Table* to *Object Per Column*. The documentation always refers to row and column headers supposing than *Orientation* is set to its default value — *Object Per Row*.|
+| You may flip the table by setting *Orientation* property of a GameTable to *Object Per Column*. The documentation always refers to row and column headers supposing than *Orientation* is set to its default value — *Object Per Row*.|
 
 ## Row Headers
 
@@ -31,7 +31,7 @@ Examples:
 * Yellow Car / Front Left Wheel \<Rigid Body\>
 * Plasma Gun / \<Shooter\> Patterns[0].Offset
 
-Notice the **/** separator between *Prefab Name* and the following header elements. It's required if a row header contains any elements besides *Prefab Name*. Otherwise it would be impossible to distinguish the extra elements from *Prefab Name* due to [whitespace-insensitivity]({{ site.baseurl }}{% link reference/headers_format/matching_rules.md %}#case--and-whitespace-sensitivity) of Game Tables.
+Notice the **/** separator between *Prefab Name* and the following header elements. It's required if a row header contains any elements besides *Prefab Name*. Otherwise it would be impossible to distinguish the extra elements from *Prefab Name* due to [whitespace insensitivity]({{ site.baseurl }}{% link reference/headers_format/matching_rules.md %}#case-and-whitespace-insensitivity) of Game Tables.
 
 More details on specific header elements see in [Header Elements]({{ site.baseurl }}{% link reference/headers_format/header_elements.md %}).
 

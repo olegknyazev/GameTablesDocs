@@ -5,30 +5,30 @@ nav_order: 3
 ---
 # Arrays
 
-Game Tables lets you to apply properties to arrays. To refer an array element square brackets are used:
+Game Tables allows you to apply properties to arrays. To refer an array element square brackets are used:
 
 - DamageByLevel**[2]**
 - FirePatterns**[1]**.Offset.X
 
-Array may be nested up to any depth:
+Arrays may be nested up to any depth:
 
 - Weapon**[0]**.Level**[1]**.Damage
 
-You may use arrays in both [row and column headers]() and even in both row and column headers simultaneously:
+You may use arrays in both [row and column headers]({{ site.baseurl }}{% link reference/headers_format/index.md %}) and even in both row and column headers simultaneously:
 
 |             | EnemiesToSpawn[0]  | EnemiesToSpawn[1]   |
 |:------------|-------------------:|--------------------:|
 | Level[0]    |             Zombie |              Spider |
 | Level[1]    |             Spider |            Gargoyle |
 
-After applying the upper table the following property values will be applied:
+After applying the above table the following property values will be applied:
 
 - Level[0].EnemiesToSpawn[0] = Zombie
 - Level[0].EnemiesToSpawn[1] = Spider
 - Level[1].EnemiesToSpawn[0] = Spider
 - Level[1].EnemiesToSpawn[1] = Gargoyle
 
-This feature works especially good with [Wildcard Indexes](#wildcard-indexes).
+This feature works especially good with [wildcard indexes](#wildcard-indexes).
 
 Like in Unity, arrays in Game Tables are zero-based.
 
