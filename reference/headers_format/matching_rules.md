@@ -38,6 +38,6 @@ We can refer to the second property by any of these paths:
 - Pattern.Offset.X
 - Offset.X
 
-Or even just X (but that'a a bad idea in real world because each game object has a Transform component with more than one X properties). But we cannot refer property 3 by just HitPoints because it's ambiguous: HitPoints may refer both the third of fourth property.
+Or even just X (perhabs that's a bad idea in real world because each game object has a Transform component with more than one X properties). But we cannot refer property 3 by just HitPoints because it's ambiguous: HitPoints may refer both the third or fourth property.
 
 So, a general rule of partial matching is that you may omit the leftmost part of the property path until it's ambiguous.

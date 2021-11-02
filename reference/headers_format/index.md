@@ -17,13 +17,13 @@ As a general rule, you may think that a row header locates an object and a colum
 The full syntax of a row header is following:
 > **Prefab Name** [ / [*Game Object Name*] [<*Component Type*>] [*Property Prefix*]]
 
-*Square brackets denote optional clauses.*
+*Square brackets denote optional elements.*
 
 A row header should conform the following rules:
 * Must contain a *Prefab Name*
 * May contain a *Game Object Name* if the column header does not contain it
 * May contain a *Component Type* if the column header does not contain it nor *Game Object Name*
-* May contain a prefix for *Property Path* if the column header does not contain *Game Object Name* or *Component Type*
+* May contain a prefix for *Property Path* if the column header does not contain *Game Object Name* nor *Component Type*
 
 Examples:
 * Player
@@ -40,7 +40,7 @@ More details on specific header elements see in [Header Elements]({{ site.baseur
 The full syntax of a column header is following:
 > [*Game Object Name*] [<*Component Type*>] **Property Path**
 
-*Square brackets denote optional clauses.*
+*Square brackets denote optional elements.*
 
 A column header should conform the following rules:
 * Must contain a *Property Path* or its suffix
