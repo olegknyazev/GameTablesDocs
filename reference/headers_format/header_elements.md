@@ -23,11 +23,11 @@ The only required elements that any cell should contain are *Prefab Name* and *P
 
 ## Prefab Name
 
-*Prefab Name* locates a [Prefab](https://docs.unity3d.com/Manual/Prefabs.html) or a [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html) inside the project. Game Tables searches for this name recursively starting from the directory specified in the *Search Path* property of a GameTable object.
+*Prefab Name* locates a [Prefab](https://docs.unity3d.com/Manual/Prefabs.html) or a [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html) inside the project. Game Tables searches for this name recursively starting from the directory specified in the [Search Path]({{ site.baseurl }}{% link reference/inspector.md %}#search-path) property of a GameTable object.
 
-Prefab Name should be a *simple* name, it cannot contain any hierarchy.
-
-Prefab Name must be specified in a *row header*.
+Requirements:
+- Prefab Name should be a simple name, it cannot contain any hierarchy.
+- Prefab Name must be specified in a [Row Header]({{ site.baseurl }}{% link reference/headers_format/index.md %}#row-headers).
 
 Examples:
 * Burst Rifle
@@ -35,46 +35,44 @@ Examples:
 
 ## Game Object Name
 
-*Game Object Name* path locates a Game Object inside a Prefab. Game Tables searches for this name recursively starting from the Prefab's root game object.
+*Game Object Name* path locates a [GameObject](https://docs.unity3d.com/Manual/GameObjects.html) inside a [Prefab](https://docs.unity3d.com/Manual/Prefabs.html). Game Tables searches for this name recursively starting from the Prefab's root GameObject.
 
-Game Object Name is only appliable to *Prefabs*, it should not be used in cells that target ScriptableObjects.
+Requirements:
+- Game Object Name is only applicable to Prefabs, it should not be used in cells that target ScriptableObjects.
+- Game Object Name should be a simple name, it cannot contain any hierarchy.
+- Game Object Name is optional, you may omit it from both row and column headers.
 
-Game Object Name should be a *simple name*, it cannot contain any hierarchy.
-
-Game Object Name is *optional*, you may omit it from both row and column headers.
-
-Example:
+Examples:
 * Spawn Point 1
 * Muzzle
 
-**TODO is partial matching supported here?**
-
 ## Component Type
 
-*Component Type* locates a component inside a game object. Because game object may contain several components, a simple property name may be ambiguous. So, *Component Type* allows you to specify the exact component type the property should be applied to. When *Game Object Name* is not specified, Game Tables searches for the required component and property combination in all the game objects inside a Prefab.
+*Component Type* locates a [Component](https://docs.unity3d.com/Manual/Components.html) inside a [GameObject](https://docs.unity3d.com/Manual/GameObjects.html). Because a GameObject may contain several Components, a simple property name may be ambiguous. So, *Component Type* allows you to specify the exact component type the property should be applied to. When *Game Object Name* is not specified, Game Tables searches for the required component and property combination across all the GameObjects inside a Prefab.
 
-Component Type is only appliable to *Prefabs*, it should not be used in cells that target ScriptableObjects.
+Requirements:
+- Component Type is only applicable to Prefabs, it should not be used in cells that target ScriptableObjects.
+- Component Type is optional, you may omit it from both row and column header.
 
-Component Type is *optional*, you may omit it from both row and column header.
-
-To distinguish *Component Type* from other elements it's enclosed in angle brackets. Example:
+*Component Type* should be enclosed in angular brackets:
 * \<Rigid Body\>
 * \<Enemy Brain\>
 
 ## Property Path
 
-*Property Path* locates a specific property inside a component or ScriptableObject. *Property Path* may be hierarchical and contain array indexers and [wildcard indexers](#wildcard-indexers).
+*Property Path* locates a specific [property](https://docs.unity3d.com/Manual/EditingValueProperties.html) inside a [Component](https://docs.unity3d.com/Manual/Components.html) or [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html). *Property Path* may be hierarchical and contain [array]({{ site.baseurl }}{% link reference/headers_format/arrays.md %}) and [wildcard]({{ site.baseurl }}{% link reference/headers_format/arrays.md %}#wildcard-indexers) indexers.
+
+Requirements:
+- Property Path (or its suffix) must be specified in a [Column Header]({{ site.baseurl }}{% link reference/headers_format/index.md %}#column-headers).
 
 Property Path may be combined from row and column headers. In this case content of a column header is added to the end of the row header:
 
-| Row Header | Column Header | Result
-|-|-|-
+| Row Header    | Column Header | Resulted Property Path
+|--------------:|:--------------|:------------------------
 | Position      | X             | Position.X
 | Patterns[0]   | Spread.Power  | Patterns[0].Spread.Power
 
 *You may notice that in some cases the **.** separator was added to the result to distinguish path elements.*
-
-Property Path or its suffix must be specified in a *column header*.
 
 Examples:
 * Position.X
