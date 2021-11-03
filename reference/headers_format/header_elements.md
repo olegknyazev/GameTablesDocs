@@ -9,17 +9,17 @@ There are four types of elements that may be used in row and column headers: *Pr
 
 An important thing is that these elements *always* go in the specified order, i.e. you cannot put *Component Type* after *Property Path*. This rule is applicable even when these elements are split between row and column headers. In this case the row header is considered a prefix for the column header.
 
+It does not matter for Game Tables how exactly you split the required elements between row and column headers while all the restrictions listed in [Headers Format]({{ site.baseurl }}{% link reference/headers_format/index.md %}) are met. So, the following compositions actually refer the same property:
+
+| Row Header                      | Column Header                       |
+|--------------------------------:|:------------------------------------|
+| Player / Gun \<Clip\> Bursts[0] | Pellet Count                        |
+| Player / Gun \<Clip\>           | Bursts[0].Pellet Count              |
+| Player                          | Gun \<Clip\> Bursts[0].Pellet Count |
+
+| Keep in mind, that meaning of row and column headers may be flipped by setting [Orientation]({{ site.baseurl }}{% link reference/inspector.md %}#orientation) property of a GameTable to *Object Per Column*. |
+
 The only required elements that any cell should contain are *Prefab Name* and *Property Path*.
-
-It does not matter for Game Tables how exactly you split the required elements between row and column headers. So, the following compositions actually refer the same property:
-
-| Player / Gun \<Clip\> Bursts[0] | Pellet Count |
-
-| Player / Gun \<Clip\> | Bursts[0].Pellet Count |
-
-| Player | Gun \<Clip\> Bursts[0].Pellet Count |
-
-The following subsections describe header element types in details.
 
 ## Prefab Name
 

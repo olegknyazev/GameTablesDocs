@@ -29,7 +29,7 @@ Sheets to Import
 
   This property only shown when *Source* is set to *Google Sheets*. 
 
-Orientation
+<a id="orientation"></a> Orientation
 
 : Determines how to interpret column and row headers. The default mode is *Object Per Row* in which case row headers are considered Prefab names (with optional property prefixes) and column headers are considered as property names. The *Property Per Row* mode "flips" the table. More on row and columns headers see in [Headers Format]({{ site.baseurl }}{% link reference/headers_format/index.md %}).
 
