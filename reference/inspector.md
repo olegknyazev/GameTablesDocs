@@ -5,9 +5,13 @@ nav_order: 4
 # Inspector
 ![Game Tables Inspector UI]({{ site.baseurl }}{% link reference/inspector.png %})
 
+## Properties
+
 <a id="source"></a> Source
 
 : Specifies the type of the table data source. Currently CSV files and Google Sheets documents are supported. The following four parameters depend on selected value.
+
+### Google Sheets Properties
 
 <a id="spreadsheet-id"></a> Spreadsheet Id
 
@@ -15,27 +19,27 @@ nav_order: 4
 
   In order to access Google Sheets documents you need to authorize in Google and grant access for Game Tables application. In case if you have not authorized yet, a special UI will be shown below. More information about Google Sheets authrozation see in [Authorize in Google Sheets]({{ site.baseurl }}{% link guides/authorize_in_google_sheets.md %}).
 
-  *This property only shown when [Source](#source) is set to Google Sheets.*
-
 Spreadsheet Name
 
 : A read-only field that displays the name of the specified Google Sheets document. It helps you be sure that you specified the correct [Spreadsheet Id](#spreadsheet-id).
 
-  *This property only shown when [Source](#source) is set to Google Sheets.*
-
 Sheets to Import
 
-: A checklist that specifies which sheets from a document you want to import. You may use this property for multi-sheets documents to make Game Tables import only some of them.
+: A checklist that specifies which of the document sheets you want to import. You may use this property for multi-sheets documents to make Game Tables import only some of them.
 
   | Keep in mind, that a GameTable object stores the concrete list of sheets. The menu item *Select All* just updates the list to the current value got from the Google Sheets service. It does mean that if the composition of sheets is changed in the online document, existing GameTable object may require manual update. |
 
-  *This property only shown when [Source](#source) is set to Google Sheets.*
+### CSV Properties
 
 Asset
 
 : A reference to a .csv file in the project to import data from. The referenced asset should be [TextAsset](https://docs.unity3d.com/Manual/class-TextAsset.html).
 
-  *This property only shown when [Source](#source) is set to CSV.*
+Update on CSV Change
+
+: If checked, data will re-imported automatically from the table each time the source .csv file changed.
+
+### Common Properties
 
 <a id="orientation"></a> Orientation
 
@@ -84,6 +88,6 @@ Array Update Policy
 
 <a id="update-targets"></a> Update Targets
 
-: Updates all the properties referenced from this GameTable. If something goes wrong during the update, an error message is shown in the Console window and all the affected objects are reverted to the state they have before update. A successful update may be reverted in a single step by Unity's Undo menu.
+: Updates all the properties referenced from this GameTable. If something goes wrong during the update, an error message is shown in the Console window and all the affected objects are reverted to the state they had before update. A successful update may be reverted in a single step by Unity's Undo menu.
 
   After an update all the affected Prefabs are *not saved* automatically. You need to run *File / Save Project* to persist the changes.
