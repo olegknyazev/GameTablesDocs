@@ -16,7 +16,7 @@ Import process may be triggered by a data change in case of locally stored data 
 
 ## Data Layout
 
-Game Tables applies two-dimensional data to object hierarchies. To do so, it somehow maps table structure to objects. This section explain this process in details.
+Game Tables applies two-dimensional data to object hierarchies. To do so, it somehow maps table structure to objects.
 
 A table in Game Tables always have a row header, a column header and content:
 
