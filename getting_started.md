@@ -33,4 +33,4 @@ In the Example folder you may see a set of assets whose names start from `Balanc
 * `Balance_Original_GoogleSheets` imports from the Balance_Original Google Sheets document
 * `Balance_Alternative_GoogleSheets` imports from the Balance_Alternative Google Sheets document
 
-By default the example has the Original balance variant applied. You may open either a CSV or GoogleSheets version with Alternatie balance variant and click the *Import Data* button in the Inspector. Then run the game again and see how the gameplay is changed.
+By default the example has the Original balance variant applied. You may open either a CSV or GoogleSheets version with Alternatie balance variant and click the *Apply Game Table* button in the Inspector. Then run the game again and see how the gameplay is changed.

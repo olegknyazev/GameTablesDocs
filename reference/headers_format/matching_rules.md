@@ -11,7 +11,7 @@ All the search process may be divided into two phases:
 1. Look for a matching [Prefab](https://docs.unity3d.com/Manual/Prefabs.html) or [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html) in Project tree. The only header element that's considered at this stage is *Prefab Name*.
 2. Look for a matching property of some of components and game objects. *Game Object Name*, *Component Type* and *Property Path* are considered at this stage.
 
-During any of the phases if Game Tables finds more than one matching entity, an error occurs and the update process interrupts.
+If Game Tables finds more than one matching entity during any of the phases, an error occurs and the applying process interrupts.
 
 ## Case and Whitespace Insensitivity
 

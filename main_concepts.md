@@ -12,7 +12,7 @@ The main thing you should know about Game Tables is that it *works in editor*. I
 
 GameTable is an object that resides in your project (it's a [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html) from the programmer's point of view). This object contains all the settings related to a single data source which may be a single table or a group of tables in case of multi-sheet documents. You may have as many GameTable objects in your project as you need.
 
-You may run import from the GameTable object [Inspector]({{ site.baseurl }}{% link reference/inspector.md %}). For locally stored data source (CSV) it's also possible to enable auto-import feature which automatically re-imports the data when the source table changes. You also may re-import all the GameTables in the project at once by using the *Tools / Game Tables / Update All Tables* menu.
+You may run import from the GameTable object [Inspector]({{ site.baseurl }}{% link reference/inspector.md %}). For locally stored data source (CSV) it's also possible to enable auto-import feature which automatically re-imports the data when the source table changes. You also may re-import all the GameTables in the project at once by using the *Tools / Game Tables / Apply All Game Tables* menu.
 
 ## Data Layout
 

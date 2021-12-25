@@ -27,7 +27,7 @@ Sheets to Import
 
 : A checklist that specifies which of the document sheets you want to import. You may use this property for multi-sheets documents to make Game Tables import only some of them.
 
-  | Keep in mind, that a GameTable object stores the concrete list of sheets. The menu item *Select All* just updates the list to the current value got from the Google Sheets service. It does mean that if the composition of sheets is changed in the online document, existing GameTable object may require manual update. |
+  | Keep in mind, that a GameTable object stores a concrete list of sheets. The menu item *Select All* just updates the list to the current value got from the Google Sheets service. It does mean that if the composition of sheets is changed in the online document, existing GameTable object may require manual update. |
 
 ### CSV Properties
 
@@ -35,9 +35,9 @@ Asset
 
 : A reference to a .csv file in the project to import data from. The referenced asset should be [TextAsset](https://docs.unity3d.com/Manual/class-TextAsset.html).
 
-Update on CSV Change
+Apply on CSV Change
 
-: If checked, data will re-imported automatically from the table each time the source .csv file changed.
+: If checked, the GameTable will be re-applied each time the source .csv file is changed.
 
 ### Common Properties
 
@@ -86,8 +86,8 @@ Array Update Policy
 
   More information on this property see in [Array Update Modes]({{ site.baseurl }}{% link reference/headers_format/arrays.md %}).
 
-<a id="update-targets"></a> Update Targets
+<a id="apply-game-table"></a> Apply Game Table
 
-: Updates all the properties referenced from this GameTable. If something goes wrong during the update, an error message is shown in the Console window and all the affected objects are reverted to the state they had before update. A successful update may be reverted in a single step by Unity's Undo menu.
+: Updates properties of all the target Prefabs and ScriptableObject by data imported from the specified table source. If something goes wrong during the applying, an error message is shown in the Console window and all the affected objects are reverted to the state they had before the update. A successful application may be reverted in a single step by Unity's Undo menu.
 
   After an update all the affected Prefabs are *not saved* automatically. You need to run *File / Save Project* to persist the changes.
