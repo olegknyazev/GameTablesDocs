@@ -6,13 +6,13 @@ nav_order: 1
 
 ## Editor Mode Import
 
-The main thing you should know about Game Tables is that it works in *editor*. It's not included in your game build and it does not load any data at runtime. Instead, it applies table data to [Prefabs](https://docs.unity3d.com/Manual/Prefabs.html) and [ScriptableObjects](https://docs.unity3d.com/Manual/class-ScriptableObject.html) in *editor mode*. All the Prefabs go into your game build with properties already updated.
+The main thing you should know about Game Tables is that it *works in editor*. It's not included in your game build and it does not load any data at runtime. Instead, it applies table data to [Prefabs](https://docs.unity3d.com/Manual/Prefabs.html) and [ScriptableObjects](https://docs.unity3d.com/Manual/class-ScriptableObject.html) in *editor mode*. All the Prefabs go into your game build with properties already updated.
 
 ## GameTable Object
 
 GameTable is an object that resides in your project (it's a [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html) from the programmer's point of view). This object contains all the settings related to a single data source which may be a single table or a group of tables in case of multi-sheet documents. You may have as many GameTable objects in your project as you need.
 
-Import process may be triggered by a data change in case of locally stored data sources (CSV) or manually in case of online-stored data sources (Google Sheets). You may run import on any of Game Tables present in project or run it on all the Game Tables in project at once.
+You may run import from the GameTable object [Inspector]({{ site.baseurl }}{% link reference/inspector.md %}). For locally stored data source (CSV) it's also possible to enable auto-import feature which automatically re-imports the data when the source table changes. You also may re-import all the GameTables in the project at once by using the *Tools / Game Tables / Update All Tables* menu.
 
 ## Data Layout
 
@@ -26,7 +26,7 @@ A table in Game Tables always have a row header, a column header and content:
 | **Row Header 2** | Content         | Content         | ... |
 | **...**          | ...             | ...             | ... |
 
-Content contains actual data that is applied to target objects' properties. Headers contain information that allows Game Tables to figure out to which exactly property of which exactly object the data should be applied. In the simplest form a column header contains a name of an object in your project and a row header contains a property name:
+Content contains actual data that is applied to target objects' properties. Headers contain information that allows Game Tables to figure out to which exactly property of which exactly object the data should be applied. In the simplest form a column header contains a name of a Prefab in your project and a row header contains a property name:
 
 |          | Health | Damage |
 |:---------|-------:|-------:|
