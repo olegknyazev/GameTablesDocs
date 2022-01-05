@@ -17,16 +17,22 @@ It's important to understand that Game Tables does not try to interpret table ce
 ### Strings
 String is used as is, no trimming nor other transformations take place when applying a cell value to a string property.
 
+C# type: [string](https://docs.microsoft.com/en-us/dotnet/api/system.string).
+
 ### Booleans
 Boolean has two values. "True" and "yes" are interpreted as true, "false" and "no" are interpreted as false. When checking values case and whitespace are ignored. Examples of booleans:
 - Yes
 -  no
 - TRUE
 
+C# type: [bool](https://docs.microsoft.com/en-us/dotnet/api/system.boolean).
+
 ### Integer Numbers
 Integer number may contain comma as optional thousands separator. Examples of integer numbers:
 - 24,700
 - 56
+
+C# types: [int](https://docs.microsoft.com/en-us/dotnet/api/system.int32), [long](https://docs.microsoft.com/en-us/dotnet/api/system.int64). If the value is too large for the target type, the table application stops and an error is reported.
 
 ### Floating Point Numbers
 Floating point number use dot as decimal separator. It also may be written in exponential form also known as scientific notation. Examples of floating point numbers:
@@ -34,6 +40,8 @@ Floating point number use dot as decimal separator. It also may be written in ex
 - 2,500.49
 - 0.471E+2
 - -2.6E-3
+
+C# types: [float](https://docs.microsoft.com/en-us/dotnet/api/system.single), [double](https://docs.microsoft.com/en-us/dotnet/api/system.double). If the value cannot be represented in the target type without loss, it will be clamped.
 
 ### Vectors
 Vectors are collections of integer or floating point numbers. Game Tables expects semicolon or comma as a component separator. Semicolon is a safer option because it allows you to still use commas as thousand separators.
@@ -50,6 +58,8 @@ Examples of vectors:
 
 Vector properties are [compound properties](#compound-properties), so you may refer components of a vector separately. For example, if you have a Vector3 property named Position, you can use Position.X to set it's X component.
 
+C# types: [Vector2](https://docs.unity3d.com/ScriptReference/Vector2.html), [Vector2Int](https://docs.unity3d.com/ScriptReference/Vector2Int.html), [Vector3](https://docs.unity3d.com/ScriptReference/Vector3.html), [Vector3Int](https://docs.unity3d.com/ScriptReference/Vector3Int.html), [Vector4](https://docs.unity3d.com/ScriptReference/Vector4.html).
+
 ### Quaternions (Rotations)
 Quaternion in Game Tables is expressed in the same way as in Unity Editor — as euler angles. It's a triplet of numbers each of which determines rotations around a specific axis: pitch, yaw, roll. As in Unity, rotation is specified in degrees. The format of a quaternion is equal to the format of three-component floating-point vector.
 
@@ -59,20 +69,24 @@ Examples of quaternions:
 
 Quaternion properties are [compound properties](#compound-properties), so you may also refer components of a quaternion separately. For example, if you have a Quaternion property named Rotation, you can use Rotation.Y to set it's Y component (yaw).
 
+C# type: [Quaternion](https://docs.unity3d.com/ScriptReference/Quaternion.html).
+
 ### Colors
 There are several forms that colors in Game Tables may look like. 
 
 1. First of all, a color may be expressed as either three or four component vector. Components are floating point numbers from 0 to 1 which define the value of red, green and blue channels. If fourth component is present, it defines the opacity of a color.
 
-2. Alternatively, color may be expressed in hexademical form also known as web colors. It may contain optional alpha. Each color channel may be composed from either one or two digits. More detailed information about web color format you may find on [this page](https://docs.unity3d.com/ScriptReference/ColorUtility.TryParseHtmlString.html).
+2. Alternatively, color may be expressed in the hexademical form also known as web colors. It may contain an optional alpha. Each color channel may be composed from either one or two digits. More detailed information about web color format you may find on [this page](https://docs.unity3d.com/ScriptReference/ColorUtility.TryParseHtmlString.html).
 
-3. The last option is known color names like red, cyan, blue, etc. The full list of supported color names may found [here](https://docs.unity3d.com/ScriptReference/ColorUtility.TryParseHtmlString.html).
+3. The last option is known color names like red, cyan, blue, etc. The full list of supported color names may be found [here](https://docs.unity3d.com/ScriptReference/ColorUtility.TryParseHtmlString.html).
 
 Examples of colors:
 - 1, 0, 0
 - (0.5; 1; 0; 0.75)
 - #56FE20
 - magenta
+
+C# types: [Color](https://docs.unity3d.com/ScriptReference/Color.html), [Color32](https://docs.unity3d.com/ScriptReference/Color32.html). If the value cannot be represent in the target type without loss, it will be clamped.
 
 ### Rectangles
 Rectangle is determined by four integer or floating point numbers: x, y, width and height. To set a rectangle value from a table, write four numbers separated by a semicolon (or comma).
@@ -86,6 +100,8 @@ Rectangle properties are [compound properties](#compound-properties). Regular (f
 - Area.Center
 - Area.Center.X
 
+C# types: [Rect](https://docs.unity3d.com/ScriptReference/Rect.html), [RectInt](https://docs.unity3d.com/ScriptReference/RectInt.html).
+
 ### Enumerations
 Enumerated properties can have a value from a predefined set of values. To specify value for an enumerated property, just write the name of value. In Unity some enumerations also lets you to specify more than one value (`[Flags]` enums in C# terms). To specify several values for a flags property, separate names of these values by commas. Case and whitespace is ignored when comparing names. 
 
@@ -93,6 +109,8 @@ Examples of enumerations:
 - Off
 - Blend Probes
 - Walk, Run, Swim
+
+C# types: [Enum](https://docs.microsoft.com/en-us/dotnet/api/system.enum) and derived classes. Usually declared using the `enum` keyword.
 
 ### Asset References
 Sometimes one Prefab or Scriptable Object references another. To set up such a property from a table, just write the name of the prefab. The referenced prefab is looked in the same folder where Game Tables looks for the target object (to which we're applying properties). This folder is specified by [Search Path]({{ site.baseurl }}{% link reference/inspector.md %}#search-path) property.
@@ -103,6 +121,8 @@ Examples of asset references:
 - Big Explosion
 - Level 1 Settings
 
+C# types: [UnityEngine.Object](https://docs.unity3d.com/ScriptReference/Object.html) and derived classes.
+
 ### Layer Masks
 [Layer](https://docs.unity3d.com/Manual/Layers.html) mask allows you to specify a set of layers which may be used to filter collisions, for example. To set a layer mask property from a table, write layers name in a list, using comma or semicolon separators:
 - Water
@@ -111,7 +131,9 @@ Examples of asset references:
 
 Empty cell means empty set—that's a set containing no elements.
 
-| As in any other place in Game Tables, layer names are case and whitespace insensitive, so Water and waTER means the same layer. If your project contains layers whose names clash when comparing them in case and whitespace insensitive way, you will got an error during the table application. In this case you should either not use Game Tables to specify these layers, or rename layers in [Tags and Layers](https://docs.unity3d.com/Manual/class-TagManager.html) window. |
+| As in any other place in Game Tables, layer names are case and whitespace insensitive, so Water and waTER means the same layer. If your project contains layers whose names clash when comparing them in the case and whitespace insensitive way, you will got an error during the table application. In this case you should either not use Game Tables to specify these layers, or rename layers in [Tags and Layers](https://docs.unity3d.com/Manual/class-TagManager.html) window. |
+
+C# type: [LayerMask](https://docs.unity3d.com/ScriptReference/LayerMask.html).
 
 ### Compound Properties
 Compound properties are properties that consist of more than one child element. Standard vectors and quaternions are compound types, but there are more of them and your project is likely use many custom compound types. By default compounds are displayed as expandable fields in Inspector. With exception of built-in compounds described in this topic, you cannot specify value for the entire compound property in a single table cell. But you may specify values for components of a compound. To refer a compound's component, use **.** delimeter:
@@ -119,6 +141,6 @@ Compound properties are properties that consist of more than one child element. 
 - AttackParameters.Spread.Y
 - Rotation.Y
 
-| In C# compound types are struct or classes that are marked with `[Serializable]`. Game Tables also supports polymorphic serialization that's activated by `[SerializeReference]` annotation. |
-
 When speaking on built-in compounds (vectors, quaternions and rectables), keep in mind that you cannot specify both the entire vector and any of its components in tables that are applied together.
+
+C# types: structs or classes marked with the [Serializable](https://docs.unity3d.com/ScriptReference/Serializable.html) or [SerializeReference](https://docs.unity3d.com/ScriptReference/SerializeReference.html) attribute.
