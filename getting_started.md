@@ -30,7 +30,7 @@ The entry point to showcase is the Example scene that resides at the Example fol
 In the Example folder you may see a set of assets whose names start from `Balance_`. These assets are GameTable objects, each of which is set up to import data from a specific table:
 * `Balance_Original_CSV` imports from the `CSV/Balance_Original.csv` file
 * `Balance_Alternative_CSV` imports from the `CSV/Balance_Alternative.csv` file
-* `Balance_Original_GoogleSheets` imports from the Balance_Original Google Sheets document
-* `Balance_Alternative_GoogleSheets` imports from the Balance_Alternative Google Sheets document
+* `Balance_Original_GoogleSheets` imports from the [Balance_Original](https://docs.google.com/spreadsheets/d/1xaYudoHmST4hAjno8C70gcSN_2oSyo7w69sZz49FHO4/edit?usp=sharing) Google Sheets document
+* `Balance_Alternative_GoogleSheets` imports from the [Balance_Alternative](https://docs.google.com/spreadsheets/d/1HuHCQntTOQbM6wg0M750dN4ybKULCeGTuy6XouFTTWY/edit?usp=sharing) Google Sheets document
 
-By default the example has the Original balance variant applied. You may open either a CSV or GoogleSheets version with Alternatie balance variant and click the *Apply Game Table* button in the Inspector. Then run the game again and see how the gameplay is changed.
+By default the example has the Original balance variant applied. You may open either a CSV or GoogleSheets version with Alternative balance variant and click the *Apply Game Table* button in the Inspector. Then run the game again and see how the gameplay is changed.
