@@ -2,7 +2,7 @@
 parent: Reference
 nav_order: 4
 ---
-# Inspector
+# GameTable Inspector 
 ![Game Tables Inspector UI]({{ site.baseurl }}{% link reference/inspector.png %})
 
 ## Properties
