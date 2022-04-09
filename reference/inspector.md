@@ -45,13 +45,15 @@ Apply on CSV Change
 
 : Specifies how to interpret column and row headers. The default mode is *Object Per Row* in which case row headers are considered Prefab names (with optional property prefixes) and column headers are considered as property names. The *Property Per Row* mode "flips" the table. More on row and columns headers see in [Headers Format]({{ site.baseurl }}{% link reference/headers_format/index.md %}).
 
-Layout
+<a id="layout"></a> Layout
 
-: Specifies whether Game Tables should interpret the whole document as a single table or a collection of multiple isolated tables. Each table has separate row and column headers. So, by using *Islands* mode you may define properties for objects of various types in a single table. The *Single Table* mode supposes that the whole table has a single heading row and heading column.
+: Specifies whether Game Tables should interpret the whole sheet as a single table or a collection of multiple isolated tables. Each table has separate row and column headers. By using *Islands* mode you can define properties for objects of different types in a single sheet. The *Single Table* mode supposes that the whole sheet has a single heading row and a single heading column.
 
   For multisheet documents (e.g. Google Sheets documents) this property is applied to each sheet. That is, you may have several sheets in a document and each of these sheets may contain several tables.
 
-  To make part of a table an island, separate it from the surroundings by a border of empty cells.
+  To make part of a sheet an island, separate it from the surroundings by a border of empty cells.
+
+  The default value is *Islands*.
 
 <a id="search-path"></a> Search Path
 

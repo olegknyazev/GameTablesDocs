@@ -16,9 +16,21 @@ GameTable is an object that resides in your project (it's a [ScriptableObject](h
 
 You may run import from GameTable object's [Inspector]({{ site.baseurl }}{% link reference/inspector.md %}). For locally stored data source (CSV) it's also possible to enable auto-import which automatically re-imports the data when the source file changes. You also may re-import all the GameTables in the project at once by using the *Tools / Game Tables / Apply All Game Tables* menu.
 
-## Data Layout
+## Sheet
 
-A table in Game Tables always have the row headers, the column headers and the content:
+A sheet is a two-dimensional data container that consists of cells. For CSV files, single CSV file is a single sheet. For Google Sheets documents, single document may consist of several sheets.
+
+A sheet may contain one or more tables. For example, you may have a sheet that defines data for different types of objects which may be convenient if these objects share some common calculations or intermediate data. Each table in a sheet should be separated from any other by at least one empty cell at each side.
+
+:: Image: sheet vs table ::
+
+Multi-table functionallity may also be disabled, see the [Layout]({{ site.baseurl }}{% link reference/inspector.md %}#layout) GameTable property for details.
+
+## Table
+
+A table is a continuous grid of cells that usually contains data for a related set of objects. For example, you may have a table for all the hitscan weapons in your game or all the progression levels of a skill. Essentially, a table allows you to define a *set of properties* for a *set of objects* (that's what two-dimensionality means).
+
+A table always have the row headers, the column headers and the content:
 
 |                  | Column Header 1 | Column Header 2 | ... |
 |:----------------:|:---------------:|:---------------:|:---:|
@@ -33,4 +45,6 @@ Content contains actual data that is applied to the target objects' properties. 
 | Player   | 120    | 35     |
 | Enemy    | 90     | 20     |
 
-But actually both row and column headers may contain more information that allow you to select a property more precisely. There are four element types that a property may consist of: *Object name*, *Object path*, *Component type* and *Property name*. Detailed description of headers format see in [Headers Format]({{ site.baseurl }}{% link reference/headers_format/index.md %}).
+:: TODO add inspect image here? ::
+
+But actually both row and column headers may contain more information that allow you to select a property more precisely. There are four element types that a property may consist of: *Object name*, *Object path*, *Component type* and *Property name*. The detailed description of headers format see in [Headers Format]({{ site.baseurl }}{% link reference/headers_format/index.md %}).
