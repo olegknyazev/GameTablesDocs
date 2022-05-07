@@ -4,12 +4,17 @@ nav_order: 2
 ---
 # Import From Google Sheets
 To set up importing from Google Sheets, perform the following actions:
-1. Create a GameTable object.
+1. Create a GameTable object (right click on Project window, *Create / Game Tables / Game Table*).
 2. Set up the GameTable object properties:
     1. Choose *Google Sheets* in the [Source]({{ site.baseurl }}{% link reference/inspector.md %}#source) dropdown.
-    2. Copy URL (link) of your Google Sheet table into the [Spreadsheet Id]({{ site.baseurl }}{% link reference/inspector.md %}#spreadsheet-id) field. The actual id will be extracted automatically. You also can paste just the id part here, if you like.
-    3. If you're connecting Game Tables to Google Sheets for the first time, you will be asked to authorize in Google and grant Game Tables application read access for your Google Documents. See [Authorize In Google Sheets]({{ site.baseurl }}{% link guides/authorize_in_google_sheets.md %}) for details.
-    4. Fill the [Search Path]({{ site.baseurl }}{% link reference/inspector.md %}#search-path) text box with a path to the folder containing Prefabs you want to modify or refer from the spreadsheet. The path is specified relative the project root, for example *Assets/Prefabs/Units*.
-    5. Optional. Specify additional settings that alter the way the table data is interpreted. For example, you may choose to import only from specified sheets (for multisheet document) and whether to use object-per-row or property-per-row layout. For more see [Inspector]({{ site.baseurl }}{% link reference/inspector.md %}).
-3. Click [Apply Game Table]({{ site.baseurl }}{% link reference/inspector.md %}#apply-game-table). Successful attempt is recorded to the undo history - you may rollback it back and reapply if you want. Unsuccessful attempt leaves all the assets as they were before the applying. In this case Console window will contain a detailed description of occured problems. Be aware that modified assets are **not** saved automatically. To do so run *File / Save Project* menu.
-4. Whenever you updated the spreadsheet and want these changes to be applied to your project, run *Apply Game Table* again. You also may use menu *Tools / Game Tables / Apply All Game Tables* to apply all the Game Tables in the project at once. Game Tables doesn’t apply Google Sheets changes automatically.
+    2. Copy URL of a Google Sheets document into the [Spreadsheet Id]({{ site.baseurl }}{% link reference/inspector.md %}#spreadsheet-id) field. You can also paste just the id part here.
+    3. If the specified document has a locale that's differ from United States (en_US) you have to change it in the *File / Spreadsheet Settings* menu.
+    4. If you're connecting Game Tables to Google Sheets for the first time, you will be prompted to authorize in Google and grant Game Tables application read access to your Google Documents. See [Authorize In Google Sheets]({{ site.baseurl }}{% link guides/authorize_in_google_sheets.md %}) for details.
+    5. Enter into the [Search Path]({{ site.baseurl }}{% link reference/inspector.md %}#search-path) text box a path to the folder containing Prefabs the spreadsheet refers on. The path is specified relative the project root, for example *Assets/Prefabs/Units*.
+    6. Optional. Specify additional settings that alter the way the table data should be interpreted. For example, you may choose whether to use object-per-row or property-per-row layout. For more see [GameTable Inspector]({{ site.baseurl }}{% link reference/inspector.md %}).
+3. Click [Apply Game Table]({{ site.baseurl }}{% link reference/inspector.md %}#apply-game-table). 
+4. Check the Console window. If everything gone well, it should contain a message like the following:
+   > Game Tables: modified 5 objects (of 5), 53 properties (of 88), 0 items removed
+
+   If the Console contains any errors, fix their causes and then click Apply Game Table again.
+5. Optional. Save all the changes made by Game Tables by clicking *File / Save Project* menu.

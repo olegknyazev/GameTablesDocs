@@ -15,19 +15,21 @@ nav_order: 4
 
 <a id="spreadsheet-id"></a> Spreadsheet Id
 
-: A unique identifier of a Google Sheets document to import data from. Spreadsheet Id looks like a long sequence of letters and numbers. You may paste the entire URL of an Google Sheets document from the browser address bar—the interesting part will be extracted automatically.
+: A unique identifier of a Google Sheets document to import data from. Spreadsheet Id looks like a long sequence of letters and numbers. You may paste the entire URL of a Google Sheets document from the browser address bar—the interesting part will be extracted automatically.
 
-  In order to access Google Sheets documents you need to authorize in Google and grant access for Game Tables application. In case if you have not authorized yet, a special UI will be shown below. More information about Google Sheets authrozation see in [Authorize in Google Sheets]({{ site.baseurl }}{% link guides/authorize_in_google_sheets.md %}).
+  In order to access Google Sheets documents you need to authorize in Google and grant access to Game Tables application. In case if you have not authorized yet, a special UI will be shown below. More information about Google Sheets authrozation see in [Authorize in Google Sheets]({{ site.baseurl }}{% link guides/authorize_in_google_sheets.md %}).
+
+  Game Tables supports only documents in United States (en_US) locale. You can change locale of a spreadsheet in File / Spreadsheet Settings menu.
 
 Spreadsheet Name
 
-: A read-only field that displays the name of the specified Google Sheets document. It helps you be sure that you specified the correct [Spreadsheet Id](#spreadsheet-id).
+: A read-only field that displays the name of the specified Google Sheets document. It helps you to be sure that the specified [Spreadsheet Id](#spreadsheet-id) is correct.
 
 Sheets to Import
 
 : A checklist that specifies which of the document sheets you want to import. You may use this property for multi-sheets documents to make Game Tables import only some of them.
 
-  | Keep in mind, that a GameTable object stores a concrete list of sheets. The menu item *Select All* just updates the list to the current value got from the Google Sheets service. It does mean that if the composition of sheets is changed in the online document, existing GameTable object may require manual update. |
+  | Keep in mind, that a GameTable object stores a concrete list of sheets. The menu item *Select All* just updates the list to the current value got from the server. It does mean that if the composition of sheets is changed in the online document, existing GameTable object may require manual update. |
 
 ### CSV Properties
 
