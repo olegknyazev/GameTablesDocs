@@ -5,10 +5,10 @@ nav_order: 1
 # Getting Started
 
 ## Importing Package
-After purchasing the package on Asset Store, you can import it into your project via [Project Manager window](https://docs.unity3d.com/Manual/upm-ui.html). To see your Asset Store package select *Packages: My Assets* in the Packages dropdown menu.
+After purchasing the package on Asset Store, you can import it into your project via [Project Manager window](https://docs.unity3d.com/Manual/upm-ui.html). To see your Asset Store packages select *Packages: My Assets* in the Packages dropdown menu.
 
 ## Package Structure
-By default Game Tables package is located in `Assets/GameTables` directory. This directory has the following structure:
+By default Game Tables package is located at the `Assets/GameTables` directory. This directory has the following structure:
 
  * **Example**
  
@@ -16,16 +16,16 @@ By default Game Tables package is located in `Assets/GameTables` directory. This
 
  * **Scripts**
  
-   This directory contains Game Tables code. All the code is put into a separate assembly to speed up compilation process.
+   This directory contains Game Tables source code. All the code is put into separate [assemblies](https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html).
 
  * **ThirdParty**
  
-    This directory contains third-party assemblies required by Game Tables. Here you also may find `LICENSES.txt` file that contains licensing information on all the used third-parties.
+   This directory contains third-party assemblies required by Game Tables. Here you also may find `LICENSES.txt` file that contains licensing information on all the used third-party products.
 
 ## Example
-Game Tables package contains a showcase example that shows you a (pretty simplified) way of how Game Tables may be used in game creation.
+Game Tables package contains a showcase example that shows you a simplified way of how Game Tables may be used in game creation.
 
-The entry point to showcase is the Example scene that resides at the Example folder root. If you open this scene and run the play mode, you'll see a simple top-down shooting game with blocking graphics. The key point is that all the essential gameplay parameters of this game are stored in ScriptableObjects and Prefab which, in turn, get these values from spreadsheets. And there are two variants of game balance that may be easily applied to see changes in action.
+The entry point to the showcase is the `Example/Example.unity` scene. If you open this scene and run the play mode, you'll see a simple top-down shooting game with blocking graphics. The key point is that all the essential gameplay parameters of this game are stored in spreadsheets. And there are two variants of game balance that may be easily applied to see changes in action.
 
 In the Example folder you may see a set of assets whose names start from `Balance_`. These assets are GameTable objects, each of which is set up to import data from a specific table:
 * `Balance_Original_CSV` imports from the `CSV/Balance_Original.csv` file
