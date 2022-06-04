@@ -113,7 +113,7 @@ Examples of enumerations:
 C# types: [Enum](https://docs.microsoft.com/en-us/dotnet/api/system.enum) and derived classes. Usually declared using the `enum` keyword.
 
 ### Asset References
-Sometimes one Prefab or Scriptable Object references another. To set up such a property from a table, just write the name of the prefab. The referenced prefab is looked in the same folder where Game Tables looks for the target object (to which we're applying properties). This folder is specified by [Search Path]({{ site.baseurl }}{% link reference/inspector.md %}#search-path) property.
+Sometimes one Prefab or Scriptable Object references another. To set up such a property from a table, just write the name of the referenced Prefab. The referenced Prefab is looked in the same folder where Game Tables looks for the target object (to which we're applying properties). This folder is specified by [Search Path]({{ site.baseurl }}{% link reference/inspector.md %}#search-path) property.
 
 | As with [Prefab Names]({{ site.baseurl }}{% link reference/headers_format/header_elements.md %}#prefab-name), asset references should be simple names without any hierarchy. It means that you cannot, for example, specify "Explosions / BigOne" as reference, you have write just "BigOne" which may be ambiguous. So you have to either give more specific names to assets or set a more restrictive Search Path. |
 
