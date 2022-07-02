@@ -6,7 +6,7 @@ nav_order: 3
 
 To use Game Tables with Google Sheets, you need to authorize in your Google account and grant Game Tables application required access. Usually it's done via GameTable object Inspector: after selecting *Google Sheets* in the [Source]({{ site.baseurl }}{% link reference/inspector.md %}#source) dropdrown your will be promted to log into your Google Account.
 
-| It's strongly **recommended to use separate accounts** for everyone on the project who imports data from Google Sheets. If you want to have access to the same spreadsheet or folder, you may easily set it up with Google's tools. It's better than sharing the same account across all the team members. Why? Suppose someone leaves the team. How would you restrict his access to your project data? |
+| It's strongly **recommended to use separate accounts** for everyone on the project who imports data from Google Sheets. By sharing access to the same account between several team members you make it harder to revoke access if necessary. |
 
 To login Game Tables in Google perform the following steps:
 1. Click the Login button.
