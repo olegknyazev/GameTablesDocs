@@ -6,7 +6,7 @@ nav_order: 2
 
 ## Editor Mode Import
 
-Game Tables works in editor mode. It is not included in your game build and does not load any data at play time. The spreadsheet data is only imported into your [Prefabs](https://docs.unity3d.com/Manual/Prefabs.html) and [ScriptableObjects](https://docs.unity3d.com/Manual/class-ScriptableObject.html) when you manually invoke this command from the Editor. Once applied, the data will go into your packaged build the same way as if you had entered it all directly into your assets.
+Game Tables works in editor mode. It is not included in your game build and does not load any data at play time. The spreadsheet data is only imported into your [Prefabs](https://docs.unity3d.com/Manual/Prefabs.html) and [ScriptableObjects](https://docs.unity3d.com/Manual/class-ScriptableObject.html) when you manually invoke commands from the Editor. Once applied, the data will go into your packaged build the same way as if it had been entered directly into your assets.
 
 | If you're looking for a tool that updates game data in a released build, consider using [Asset Bundles](https://docs.unity3d.com/Documentation/Manual/AssetBundlesIntro.html). This way, you will not only be able to use Game Tables for updates, but also change the data that is usually not stored in spreadsheets, such as textures and sounds. |
 
