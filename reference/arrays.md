@@ -1,6 +1,5 @@
 ---
-grand_parent: Reference
-parent: Headers Format
+parent: Reference
 nav_order: 3
 ---
 # Arrays

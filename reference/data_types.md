@@ -1,6 +1,6 @@
 ---
 parent: Reference
-nav_order: 3
+nav_order: 2
 ---
 # Data Types
 Game Tables can apply data to properties of various types: integer and floating point numbers, vectors, colors. This section describes format of all the supported data types.

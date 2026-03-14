@@ -88,7 +88,7 @@ Array Update Policy
     
     In this mode, if an array property is referenced from a table, only items at the referenced indices are replaced.
 
-  More information on this property see in [Array Update Modes]({{ site.baseurl }}{% link reference/headers_format/arrays.md %}).
+  More information on this property see in [Array Update Modes]({{ site.baseurl }}{% link reference/arrays.md %}#array-update-modes).
 
 <a id="apply-game-table"></a> Apply Game Table
 

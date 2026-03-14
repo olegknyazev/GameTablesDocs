@@ -60,7 +60,7 @@ Requirements:
 
 ## Property Path
 
-*Property Path* locates a specific [property](https://docs.unity3d.com/Manual/EditingValueProperties.html) inside a [Component](https://docs.unity3d.com/Manual/Components.html) or [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html). *Property Path* may be hierarchical and contain [array]({{ site.baseurl }}{% link reference/headers_format/arrays.md %}) and [wildcard]({{ site.baseurl }}{% link reference/headers_format/arrays.md %}#wildcard-indexers) indexers.
+*Property Path* locates a specific [property](https://docs.unity3d.com/Manual/EditingValueProperties.html) inside a [Component](https://docs.unity3d.com/Manual/Components.html) or [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html). *Property Path* may be hierarchical and contain [array]({{ site.baseurl }}{% link reference/arrays.md %}) and [wildcard]({{ site.baseurl }}{% link reference/arrays.md %}#wildcard-indexers) indexers.
 
 Requirements:
 - Property Path (or its suffix) must be specified in a [Column Header]({{ site.baseurl }}{% link reference/headers_format/index.md %}#column-headers).
