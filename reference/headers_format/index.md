@@ -7,7 +7,7 @@ has_children: true
 
 When Game Tables processes a value in a table cell, it needs to determine to which property of which object the value should be applied. To do so, it checks the content of the row and column headers corresponding to the cell.
 
-As a general rule, you may think that a row header locates the object, and a column header locates the property inside the object.
+As a general rule, you can think of a row header as locating the object, and a column header as locating the property within that object.
 
 | You can flip the table by setting GameTable's [Orientation]({{ site.baseurl }}{% link reference/inspector.md %}#orientation) to *Object Per Column*. For simplicity, this documentation assumes that the default value of *Object Per Row* is used. If you use a different setting, just read "row headers" as "column headers" and vice versa. |
 
@@ -40,7 +40,7 @@ Examples:
 
 ## Combining Row and Column Headers
 
-To locate the property in the project, Game Tables combines the row and column headers of each cell:
+To locate a property in the project, Game Tables combines the row and column headers of each cell:
 
 ![Sheets and Tables]({{ site.baseurl }}{% link reference/full_property_example.png %})
 
@@ -48,7 +48,7 @@ The combined header of the encircled cell is:
 
 > Boss / Rocket Launcher / \<Health\> Armor Class
 
-This combined header will be used to locate the object's property in the project. Game Tables gives you some flexibility in how the necessary information is split between row and column headers. For example, the below combinations of different row and column headers all point to the same object property:
+This combined header is used to locate the object's property in the project. Game Tables gives you some flexibility in how the required information can be split between row and column headers. For example, the following combinations of different row and column headers all point to the same object property:
 
 | Row Header                        | Column Header                         |
 |----------------------------------:|:--------------------------------------|
@@ -57,8 +57,8 @@ This combined header will be used to locate the object's property in the project
 | Player                            | Gun / \<Clip\> Bursts[0].Pellet Count |
 
 The combined header must adhere to the following rules:
-* The same component can only be present in either row or column header, but not both of them. For example, if the row header contains a *Component Type*, the column header cannot also contain it. The exception to this is *Property Path*. If this component is present in the row header, it is treated as a prefix for the column's one.
-* The column header (suffix) must be at least as specific as the row header (prefix). For example, if the row header contains a *Component Type*, the column header cannot contain *Game Object Name* as it is less specific than *Component Type*.
+* The same component can only be present in either row or column header, but not both. For example, if the row header contains a *Component Type*, the column header cannot also contain it. The exception to this is *Property Path*. If this component is present in the row header, it is treated as a prefix for the column header (see the first example in the table above).
+* The column header must be at least as specific as the row header. For example, if the row header contains a *Component Type*, the column header cannot contain a *Game Object Name* as it is less specific than a *Component Type*.
 
 Essentially, header components can only appear in the following order in the combined header:
 1. *Prefab Name*
