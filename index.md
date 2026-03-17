@@ -11,6 +11,6 @@ If you're here for the first time, check out these pages:
 - [Guides]({{ site.baseurl }}{% link guides/index.md %}) provides step-by-step guides for typical tasks you can perform with Game Tables.
 
 Experienced users may find the following pages useful:
-- [Headers Format]({{ site.baseurl }}{% link reference/headers_format/index.md %})
+- [Headers Format]({{ site.baseurl }}{% link reference/headers_format.md %})
 - [Data Types]({{ site.baseurl }}{% link reference/data_types.md %})
 - [Inspector]({{ site.baseurl }}{% link reference/inspector.md %})
