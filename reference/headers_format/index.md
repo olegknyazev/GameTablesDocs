@@ -65,3 +65,39 @@ Essentially, header components can only appear in the following order in the com
 2. *Game Object Name*
 3. *Component Type*
 4. *Property Path*
+
+## Header Components
+
+There are four types of components that may be used in row and column headers: *Prefab Name*, *Game Object Name*, *Component Type* and *Property Path*.
+
+The only required components that any cell should contain are *Prefab Name* and *Property Path*.
+
+### Prefab Name
+
+*Prefab Name* locates a [Prefab](https://docs.unity3d.com/Manual/Prefabs.html) or a [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html) in the project. Game Tables searches for an asset with this name recursively, starting from the directory specified by [Search Path]({{ site.baseurl }}{% link reference/inspector.md %}#search-path).
+
+### Game Object Name
+
+*Game Object Name* locates a [GameObject](https://docs.unity3d.com/Manual/GameObjects.html) within a [Prefab](https://docs.unity3d.com/Manual/Prefabs.html). Game Tables searches for a GameObject with this name recursively, starting from the Prefab's root GameObject.
+
+| *Game Object Name* is only applicable to Prefabs and should not be used with ScriptableObjects. |
+
+### Component Type
+
+*Component Type* helps locate a [Component](https://docs.unity3d.com/Manual/Components.html) within a [GameObject](https://docs.unity3d.com/Manual/GameObjects.html). Since the same property name may appear in more than one component on the same GameObject, you may want to specify the component type in order to avoid ambiguity. If *Component Type* is specified but *Game Object Name* is not, the required property and component combination will be sought in all GameObjects of a prefab.
+
+| *Component Type* is only applicable to Prefabs and should not be used with ScriptableObjects. |
+
+### Property Path
+
+*Property Path* locates a specific [Property](https://docs.unity3d.com/Manual/EditingValueProperties.html) within a [Component](https://docs.unity3d.com/Manual/Components.html) or [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html).
+
+A dot separator can be used in a *Property Path* to denote nested properties, e.g.: Position.X. When referencing nested properties, upper levels of the name hierarchy can be omitted, provided the path is still unambiguous. For example, property Price.Gold can be referenced as just Gold, if this name matches exactly one property in the target object.
+
+A *Property Path* can contain array indexers: SpreadPattern[0].Offset, or even wildcard indexers. The latter can be used to specify multiple items without referencing each individual one: SpawnDelays[*]. See [Arrays]({{ site.baseurl }}{% link reference/arrays.md %}) for more information.
+
+## Case and Whitespace Insensitivity
+
+All the header components are both case- and whitespace-insensitive. For example, the following two paths are the same from Game Tables' point of view:
+- Cluster Mine / \<Spreading Spawner\> Targets [ 0 ] . Offset . X
+- clustermine/\<spreadingspawner\>targets[0].offset.x
