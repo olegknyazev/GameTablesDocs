@@ -13,7 +13,7 @@ Arrays may be nested up to any depth:
 
 - Weapon**[0]**.Level**[1]**.Damage
 
-You may use arrays in both [row and column headers]({{ site.baseurl }}{% link reference/headers_format.md %}) and even in both row and column headers simultaneously:
+You may use arrays in both [row and column headers]({{ site.baseurl }}{% link reference/header_format.md %}) and even in both row and column headers simultaneously:
 
 |             | EnemiesToSpawn[0]  | EnemiesToSpawn[1]   |
 |:------------|-------------------:|--------------------:|

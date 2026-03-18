@@ -45,7 +45,7 @@ Apply on CSV Change
 
 <a id="orientation"></a> Orientation
 
-: Specifies how to interpret column and row headers. The default mode is *Object Per Row* in which case row headers are considered Prefab names (with optional property prefixes) and column headers are considered as property names. The *Property Per Row* mode "flips" the table. More on row and columns headers see in [Headers Format]({{ site.baseurl }}{% link reference/headers_format.md %}).
+: Specifies how to interpret column and row headers. The default mode is *Object Per Row* in which case row headers are considered Prefab names (with optional property prefixes) and column headers are considered as property names. The *Property Per Row* mode "flips" the table. More on row and columns headers see in [Header Format]({{ site.baseurl }}{% link reference/header_format.md %}).
 
 <a id="layout"></a> Layout
 

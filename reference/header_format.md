@@ -2,7 +2,7 @@
 parent: Reference
 nav_order: 1
 --- 
-# Headers Format
+# Header Format
 
 When Game Tables processes a value in a table cell, it needs to determine to which property of which object the value should be applied. To do so, it checks the content of the row and column headers corresponding to the cell.
 
@@ -10,7 +10,7 @@ As a general rule, you can think of a row header as locating the object, and a c
 
 | You can flip the table by setting GameTable's [Orientation]({{ site.baseurl }}{% link reference/inspector.md %}#orientation) to *Object Per Column*. For simplicity, this documentation assumes that the default value of *Object Per Row* is used. If you use a different setting, just read "row headers" as "column headers" and vice versa. |
 
-## Row Headers
+## Row Header
 
 The full syntax of a row header is the following:
 > **Prefab Name** / *Game Object Name* / <*Component Type*> *Property Prefix*
@@ -25,7 +25,7 @@ Examples:
 
 Notice the use of separators in the examples above. They must be used after *Prefab Name* and *Game Object Name* when specifying subsequent components.
 
-## Column Headers
+## Column Header
 
 The full syntax of a column header is the following:
 > *Game Object Name* / <*Component Type*> **Property Path**
