@@ -14,10 +14,20 @@ When importing data, Game Tables treats the input as string data, regardless of 
 
 As illustrated above, the cell value "12.5" can be applied to a float or string property, but applying it to a boolean property would be an error.
 
-This approach normalizes different types of data sources, makes it possible to store compound values in a single cell (e.g. vectors), and avoids a certain class of error (when a number is stored in a text cell). The drawback is that it depends on locale-specific formatting settings.
+This approach normalizes different types of data sources, makes it possible to store compound values in a single cell (e.g. vectors), and avoids a certain class of error (when a number is stored in a text cell). The drawback is that it depends on locale-specific formatting settings; see [Regional Settings and Formatting](#regional-settings-and-formatting) for details.
 
 ## Regional Settings and Formatting
 Because Game Tables interprets the source data as strings, it is important to take regional settings into account when authoring data for import. The textual representation of some data, for example floating point numbers, can differ from one language to another. For simplicity and to reduce the chance of mistakes, Game Tables requires that all source data is formatted in the USA locale (`en_US`). If you import from Google Sheets, the target spreadsheet should be set to the corresponding locale (you can check it in *File / Settings*). If you import from CSV, the CSV should be formatted according to the USA formatting rules, e.g. it should use the dot as a decimal point separator.
+
+## Compound Properties
+Compound properties are properties that consist of more than one child element. Vectors and quaternions are examples of compound types, but there are more of them defined in Unity and, most likely, in your project. By default, compound properties are displayed as expandable fields in the Inspector. With the exception of the built-in compounds described on this page, you cannot specify a value for the entire compound property in a single table cell, but you can specify values for its components. To refer to a component of a compound property, use a dot delimiter:
+- AttackParameters.Damage
+- AttackParameters.Spread.Y
+- Rotation.Y
+
+| Keep in mind that you cannot specify both the entire vector (or another built-in compound) and any of its components in the same spreadsheet. |
+
+C# types: structs or classes marked with the [Serializable](https://docs.unity3d.com/ScriptReference/Serializable.html) or [SerializeReference](https://docs.unity3d.com/ScriptReference/SerializeReference.html) attribute.
 
 ## Supported Types
 ### Strings
@@ -142,13 +152,3 @@ An empty cell means an empty set—a set containing no elements.
 | As in any other place in Game Tables, layer names are case- and whitespace-insensitive, so Water and waTER refer to the same layer. If your project contains layers whose names clash when compared in a case- and whitespace-insensitive way, you will get an error when applying the table. In this case you should either not use Game Tables to specify these layers, or rename layers in the [Tags and Layers](https://docs.unity3d.com/Manual/class-TagManager.html) window. |
 
 C# type: [LayerMask](https://docs.unity3d.com/ScriptReference/LayerMask.html).
-
-### Compound Properties
-Compound properties are properties that consist of more than one child element. Vectors and quaternions are examples of compound types, but there are more of them defined in Unity and, most likely, in your project. By default, compound properties are displayed as expandable fields in the Inspector. With the exception of the built-in compounds described on this page, you cannot specify a value for the entire compound property in a single table cell, but you can specify values for its components. To refer to a component of a compound property, use a dot delimiter:
-- AttackParameters.Damage
-- AttackParameters.Spread.Y
-- Rotation.Y
-
-| Keep in mind that you cannot specify both the entire vector (or another built-in compound) and any of its components in the same spreadsheet. |
-
-C# types: structs or classes marked with the [Serializable](https://docs.unity3d.com/ScriptReference/Serializable.html) or [SerializeReference](https://docs.unity3d.com/ScriptReference/SerializeReference.html) attribute.
