@@ -121,12 +121,12 @@ Rectangle properties are [compound properties](#compound-properties). Floating p
 C# types: [Rect](https://docs.unity3d.com/ScriptReference/Rect.html), [RectInt](https://docs.unity3d.com/ScriptReference/RectInt.html).
 
 ### Enumerations
-Enumerated properties accept values from a predefined set. To specify the value for an enumerated property, just write the name of the value. Some enumerations can have multiple values (`[Flags]` enums in C# terms). To specify several values for a flags property, list the values separated by commas. Case and whitespace are ignored when comparing names.
+Enumerated properties accept values from a predefined set. To specify the value for an enumerated property, just write the name of the value. Some enumerations can have multiple values (`[Flags]` enums in C# terms). To specify several values for a flags property, list the values separated by commas or pipe characters (`|`). Case and whitespace are ignored when comparing names.
 
 Examples of enumerations:
 - Off
-- Blend Probes
 - Walk, Run, Swim
+- Torso \| Legs
 
 C# types: [Enum](https://docs.microsoft.com/en-us/dotnet/api/system.enum) and derived classes. Usually declared using the `enum` keyword.
 
