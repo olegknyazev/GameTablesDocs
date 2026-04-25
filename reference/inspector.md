@@ -76,7 +76,7 @@ No Value Marker
 
   In the above example Knight Prefab does not have Fire Range property so it's an error to specify Fire Range for Knight. But if you put a special *No Value Marker* value into the Fire Range cell, Game Tables will ignore it.
 
-Array Update Policy
+<a id="array-update-policy"></a> Array Update Policy
 
 : Specifies how Game Tables should treat array updates. There are two modes available:
 
