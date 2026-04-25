@@ -17,10 +17,12 @@ As illustrated above, the cell value "12.5" can be applied to a float or string 
 This approach normalizes different types of data sources, makes it possible to store compound values in a single cell (e.g. vectors), and avoids a certain class of error (when a number is stored in a text cell). The drawback is that it depends on locale-specific formatting settings; see [Regional Settings and Formatting](#regional-settings-and-formatting) for details.
 
 ## Regional Settings and Formatting
-Because Game Tables interprets the source data as strings, it is important to take regional settings into account when authoring data for import. The textual representation of some data, for example floating point numbers, can differ from one language to another. For simplicity and to reduce the chance of mistakes, Game Tables requires that all source data is formatted in the USA locale (`en_US`). If you import from Google Sheets, the target spreadsheet should be set to the corresponding locale (you can check it in *File / Settings*). If you import from CSV, the CSV should be formatted according to the USA formatting rules, e.g. it should use the dot as a decimal point separator.
+Because Game Tables interprets the source data as strings, it is important to take regional settings into account when authoring data for import. The textual representation of some data, for example floating point numbers, can differ from one language to another. For simplicity and to reduce the chance of mistakes, Game Tables requires that all source data is formatted in the US locale (`en_US`). If you import from Google Sheets, the target spreadsheet should be set to the corresponding locale (you can check it in *File / Settings*). If you import from CSV, the CSV should be formatted according to US formatting rules, e.g. it should use the dot as a decimal point separator.
 
 ## Compound Properties
-Compound properties are properties that consist of more than one child element. Vectors and quaternions are examples of compound types, but there are more of them defined in Unity and, most likely, in your project. By default, compound properties are displayed as expandable fields in the Inspector. With the exception of the built-in compounds described on this page, you cannot specify a value for the entire compound property in a single table cell, but you can specify values for its components. To refer to a component of a compound property, use a dot delimiter:
+Compound properties are properties that consist of more than one child element. In the Inspector, such properties have a foldout arrow to reveal sub-fields—for example, a Vector3 expands into X, Y, and Z.
+
+Beyond the built-in ones described on this page, Unity and your own project likely define additional compound properties. With the exception of the built-in compounds, you cannot specify a value for the entire compound property in a single table cell, but you can specify values for its components. To refer to a component of a compound property, use a dot delimiter (`.`):
 - AttackParameters.Damage
 - AttackParameters.Spread.Y
 - Rotation.Y
@@ -57,7 +59,7 @@ Floating point numbers use the dot as a decimal separator. They can also be writ
 - 0.471E+2
 - -2.6E-3
 
-C# types: [float](https://docs.microsoft.com/en-us/dotnet/api/system.single), [double](https://docs.microsoft.com/en-us/dotnet/api/system.double). If the value cannot be represented in the target type without loss, it is clamped.
+C# types: [float](https://docs.microsoft.com/en-us/dotnet/api/system.single), [double](https://docs.microsoft.com/en-us/dotnet/api/system.double). If the value has more precision than the target type can hold, it is rounded to the nearest representable value; values outside the representable range become positive or negative infinity.
 
 ### Vectors
 Vectors are collections of integer or floating point numbers. Game Tables expects a semicolon or comma as a component separator.
@@ -68,11 +70,15 @@ There are 5 vector types in Unity that differ by the component type (integer or 
 
 A vector can optionally be enclosed in parentheses.
 
+Instead of listing components, you can also use named constants: `zero` and `one` for any vector type; `up`, `down`, `left`, and `right` for Vector2, Vector2Int, Vector3, and Vector3Int; and `forward` and `back` for Vector3 and Vector3Int.
+
 Examples of vectors:
 - 1, 2, 3
 - 4.5, -5, 17
 - 4,500; 2,000; 16
 - (0.567E+2; 15.6; -2; 0.0)
+- forward
+- zero
 
 Vector properties are [compound properties](#compound-properties), which means that you can refer to components of a vector separately. For example, if you have a Vector3 property named Position, you can use Position.X to set its X component.
 
@@ -121,7 +127,9 @@ Rectangle properties are [compound properties](#compound-properties). Floating p
 C# types: [Rect](https://docs.unity3d.com/ScriptReference/Rect.html), [RectInt](https://docs.unity3d.com/ScriptReference/RectInt.html).
 
 ### Enumerations
-Enumerated properties accept values from a predefined set. To specify the value for an enumerated property, just write the name of the value. Some enumerations can have multiple values (`[Flags]` enums in C# terms). To specify several values for a flags property, list the values separated by commas or pipe characters (`|`). Case and whitespace are ignored when comparing names.
+Enumerated properties accept values from a predefined set. To specify the value for an enumerated property, just write the name of the value. Case and whitespace are ignored when comparing names.
+
+Some enumerations allow multiple values at once (`[Flags]` enums in C# terms). To specify several values for a flags property, list the values separated by commas or pipe characters (`|`).
 
 Examples of enumerations:
 - Off
@@ -131,7 +139,7 @@ Examples of enumerations:
 C# types: [Enum](https://docs.microsoft.com/en-us/dotnet/api/system.enum) and derived classes. Usually declared using the `enum` keyword.
 
 ### Asset References
-Sometimes one Prefab or Scriptable Object references another. To set up such a property from a spreadsheet, just write the name of the referenced Prefab. The referenced Prefab is searched for in the same folder where Game Tables looks for the target object (the object whose property is being processed). This folder is controlled by [Search Path]({{ site.baseurl }}{% link reference/inspector.md %}#search-path).
+A property can reference another asset—a Prefab, ScriptableObject, Material, Texture, AudioClip, or any other [Object](https://docs.unity3d.com/ScriptReference/Object.html). To set up such a property from a spreadsheet, just write the name of the referenced asset. The asset is searched for in the same folder where Game Tables looks for the target object (the object whose property is being processed). This folder is controlled by [Search Path]({{ site.baseurl }}{% link reference/inspector.md %}#search-path).
 
 | As with [Prefab Names]({{ site.baseurl }}{% link reference/header_format.md %}#prefab-name), asset references should be simple names without any hierarchy. It means that you cannot, for example, specify "Explosions / BigOne" as reference, you have to write just "BigOne" (which may be ambiguous). So you have to either give more specific names to assets or set a more restrictive *Search Path*. |
 
