@@ -16,8 +16,8 @@ To login Game Tables in Google perform the following steps:
 
 If you switch back to Unity during authorization process, Game Tables UI tells that it waits for authorization. If you want to restart this process, press the Cancel button. This make pending authorization request outdated. If you close Game Tables UI and re-open it before completing authorization process, you have to start it from the beginning.
 
-# Remove Authorization Data
+# Sign Out
 
-The authentication data is saved in your personal folder on the computer. This allows you to not re-authorize each time you using Game Tables. You can remove all the authentication data from the machine if you want. To do so, open the [Preferences]({{ site.baseurl }}{% link reference/preferences.md %}) window and click Remove Authorization Data.
+The credentials Game Tables receives from Google are saved in your personal folder on the computer, so you don't have to sign in again every time you use Game Tables. You can remove these credentials from the machine at any time. To do so, open the [Preferences]({{ site.baseurl }}{% link reference/preferences.md %}) window and click *Sign Out*.
 
 | Please, keep in mind that removing a file from system is not guarantee that it cannot be read by a someone. Do not share your personal computer account with anyone. If you want to be sure, that all sensitive data is removed, use specialized software or refer documentation on your operating system. |
