@@ -2,96 +2,104 @@
 parent: Reference
 nav_order: 4
 ---
-# GameTable Inspector 
+# GameTable Inspector
 ![Game Tables Inspector UI]({{ site.baseurl }}{% link reference/inspector.png %})
+
+The GameTable Inspector lets you choose where the table data comes from and configure how Game Tables interprets that data when applying it to your project's assets.
 
 ## Properties
 
-<a id="source"></a> Source
+<a id="source"></a> Source Type
 
-: Specifies the type of the table data source. Currently CSV files and Google Sheets documents are supported. The following four parameters depend on selected value.
+: Specifies where this GameTable reads its data from. Currently, local CSV files and online Google Sheets documents are supported. The properties shown directly below depend on the selected source type.
 
 ### Google Sheets Properties
 
+These only appear if the *Source Type* is *Google Sheets*.
+
 <a id="spreadsheet-id"></a> Spreadsheet Id
 
-: A unique identifier of a Google Sheets document to import data from. Spreadsheet Id looks like a long sequence of letters and numbers. You may paste the entire URL of a Google Sheets document from the browser address bar—the interesting part will be extracted automatically.
+: The unique identifier of the Google Sheets document to import data from. A spreadsheet ID is a long sequence of letters and numbers and can be found in the document's URL. As a shortcut, you can paste the entire URL into this field — Game Tables will extract the ID automatically.
 
-  In order to access Google Sheets documents you need to authorize in Google and grant access to Game Tables application. In case if you have not authorized yet, a special UI will be shown below. More information about Google Sheets authrozation see in [Authorize in Google Sheets]({{ site.baseurl }}{% link guides/authorize_in_google_sheets.md %}).
+  To use Google Sheets documents, you must sign in to Google and grant Game Tables access to your spreadsheets. If you aren't signed in, an authorization button is shown at the bottom of the Source block. For more information, see [Authorize in Google Sheets]({{ site.baseurl }}{% link guides/authorize_in_google_sheets.md %}).
 
-  Game Tables supports only documents in United States (en_US) locale. You can change locale of a spreadsheet in File / Spreadsheet Settings menu.
+  Game Tables supports only documents in the US locale (en_US). You can change a spreadsheet's locale from the *File / Spreadsheet Settings* menu in Google Sheets.
 
 Spreadsheet Name
 
-: A read-only field that displays the name of the specified Google Sheets document. It helps you to be sure that the specified [Spreadsheet Id](#spreadsheet-id) is correct.
+: A read-only field that displays the name of the document at the specified [Spreadsheet Id](#spreadsheet-id). Use it to confirm that the ID points to the document you intended.
 
 Sheets to Import
 
-: A checklist that specifies which of the document sheets you want to import. You may use this property for multi-sheets documents to make Game Tables import only some of them.
+: A dropdown that lets you pick which sheets of the document to import. Each entry in the dropdown is checkable, so you can import any subset of the document's sheets.
 
-  | Keep in mind, that a GameTable object stores a concrete list of sheets. The menu item *Select All* just updates the list to the current value got from the server. It does mean that if the composition of sheets is changed in the online document, existing GameTable object may require manual update. |
+  | Keep in mind that a GameTable always stores a concrete list of sheet names. The *Select All* menu item simply populates that list with all sheets currently available on the server. If sheets are later added or removed in the online document, you may need to update the list manually. |
 
 ### CSV Properties
 
+These only appear if the *Source Type* is *CSV*.
+
 Asset
 
-: A reference to a .csv file in the project to import data from. The referenced asset should be [TextAsset](https://docs.unity3d.com/Manual/class-TextAsset.html).
+: A reference to a .csv file in the project to import data from. The referenced asset must be a [TextAsset](https://docs.unity3d.com/Manual/class-TextAsset.html).
 
 Apply on CSV Change
 
-: If checked, the GameTable will be re-applied each time the source .csv file is changed.
+: If checked, the GameTable is automatically re-applied each time the source .csv file changes, without requiring a manual click on [Apply Game Table](#apply-game-table).
 
 ### Common Properties
 
 <a id="orientation"></a> Orientation
 
-: Specifies how to interpret column and row headers. The default mode is *Object Per Row* in which case row headers are considered Prefab names (with optional property prefixes) and column headers are considered as property names. The *Property Per Row* mode "flips" the table. More on row and columns headers see in [Header Format]({{ site.baseurl }}{% link reference/header_format.md %}).
+: Specifies how to interpret column and row headers. In the default *Object Per Row* mode, each row corresponds to an object — its header is a Prefab name (optionally with a property prefix) — and each column corresponds to a property. The *Property Per Row* mode flips this: rows become properties and columns become objects. For more on header syntax, see [Header Format]({{ site.baseurl }}{% link reference/header_format.md %}).
 
 <a id="layout"></a> Layout
 
-: Specifies whether Game Tables should interpret the whole sheet as a single table or a collection of multiple isolated tables. Each table has separate row and column headers. By using *Islands* mode you can define properties for objects of different types in a single sheet. The *Single Table* mode supposes that the whole sheet has a single heading row and a single heading column.
+: Specifies whether Game Tables should interpret each sheet as a single continuous table (*Single Table*) or a collection of multiple isolated tables (*Islands*). Since each table has its own row and column headers, putting multiple tables on the same sheet lets you apply properties to several different types of objects from a single sheet.
 
-  For multisheet documents (e.g. Google Sheets documents) this property is applied to each sheet. That is, you may have several sheets in a document and each of these sheets may contain several tables.
+  For multi-sheet documents, this setting is applied to each sheet independently. In other words, every sheet of a document can contain several tables.
 
-  To make part of a sheet an island, separate it from the surroundings by a border of empty cells.
+  For a group of cells to form a separate table (an *island*), it must be surrounded by a border of empty cells.
 
-  The default value is *Islands*.
+  The default mode is *Islands*.
 
 <a id="search-path"></a> Search Path
 
-: Specifies the root folder for searching assets that are referenced from the table. The path is relative to the project root folder and usually starts with *Assets/* (e.g. *Assets/Prefabs/Buildings*).
+: Specifies the root folder under which Game Tables searches for assets referenced from the table. The path is relative to the project folder and usually starts with *Assets/* (for example, *Assets/Prefabs/Buildings*).
 
-  This folder is used for assets specified in either header or content rows. More on referencing assets from another assets see in [Asset References]({{ site.baseurl }}{% link reference/data_types.md %}#asset-references).
+  This folder is used both for [Prefab Names]({{ site.baseurl }}{% link reference/header_format.md %}#prefab-name) referenced in header cells and for [asset references]({{ site.baseurl }}{% link reference/data_types.md %}#asset-references) in content cells.
+
+  If the *Is Relative* option is enabled, the path is interpreted as relative to the GameTable asset's own location. For example, if the inspected GameTable lives at `Assets/Units/AllUnits.asset`, a relative search path of *Melee* refers to the `Assets/Units/Melee` folder.
 
 No Value Marker
 
-: Specifies a value that may be used in the table to mark cells that do not have a value. Not having a value is not the same as empty cell. By default, if a cell is empty, then an empty value will be assigned to the property. But if cell contain "no value" marker value, property will not be changed at all.
+: Specifies a value that, when found in a cell, marks the cell as having no value at all. A cell with no value is not the same as an empty cell. By default, an empty cell assigns an empty value to the target property — for example, a string property becomes the empty string. A cell containing the *No Value Marker*, by contrast, leaves the target property unchanged.
 
-  This may be useful when you have a group of objects having many common properties but a few different properties. By using *No Value Marker* you may put all these objects into a single table:
+  This is useful when you have a group of objects that share many common properties but differ in a few. With a *No Value Marker*, you can keep all those objects in a single table:
 
   |          | Health | Movement Speed | Fire Range  |
   |:---------|-------:|---------------:|------------:|
   | Archer   | 120    | 35             | 14          |
   | Knight   | 90     | 20             | -           |
 
-  In the above example Knight Prefab does not have Fire Range property so it's an error to specify Fire Range for Knight. But if you put a special *No Value Marker* value into the Fire Range cell, Game Tables will ignore it.
+  In the example above, the Knight Prefab has no Fire Range property, so writing a value there would normally produce an error. The "-" in that cell is the *No Value Marker* (the default value), which tells Game Tables to skip the cell entirely.
 
 <a id="array-update-policy"></a> Array Update Policy
 
-: Specifies how Game Tables should treat array updates. There are two modes available:
+: Specifies how Game Tables combines the values from the table with the existing contents of an array property. Two modes are available:
 
   - **Replace Whole Array** (default)
     
-    In this mode, if an array property is referenced from a table, it's replaced entirely. Because you always refer a specific array element from a table, it's possible to have holes in the array after an update. These holes are assigned to the default value for a specific data type (empty string for strings, zero for numbers etc.). For more on data types and their default values see [Data Types]({{ site.baseurl }}{% link reference/data_types.md %}).
+    The entire array is replaced with values from the table. Since the table references specific array indices, the resulting array may contain gaps where no index was referenced; those positions are filled with the default value for the property's data type (the empty string for strings, zero for numbers, and so on). For more on data types and their default values, see [Data Types]({{ site.baseurl }}{% link reference/data_types.md %}).
 
   - **Replace Specific Elements**
     
-    In this mode, if an array property is referenced from a table, only items at the referenced indices are replaced.
+    Only the items at the referenced indices are replaced. Any other elements of the array remain intact.
 
-  More information on this property see in [Array Update Modes]({{ site.baseurl }}{% link reference/arrays.md %}#array-update-modes).
+  For more information, see [Array Update Modes]({{ site.baseurl }}{% link reference/arrays.md %}#array-update-policy).
 
 <a id="apply-game-table"></a> Apply Game Table
 
-: Updates properties of all the target Prefabs and ScriptableObject by data imported from the specified table source. If something goes wrong during the applying, an error message is shown in the Console window and all the affected objects are reverted to the state they had before the update. A successful application may be reverted in a single step by Unity's Undo menu.
+: Updates the properties of all target Prefabs and ScriptableObjects with data imported from the configured source. If something goes wrong during the process, an error message is logged to the Console window and all affected objects are reverted to the state they were in before the update. A successful update can also be reverted in a single step using Unity's Undo command.
 
-  After an update all the affected Prefabs are *not saved* automatically. You need to run *File / Save Project* to persist the changes.
+  | After an update, the affected Prefabs and ScriptableObjects are *not saved* automatically. Run *File / Save Project* to persist the changes. |
