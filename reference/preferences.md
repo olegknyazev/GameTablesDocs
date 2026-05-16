@@ -13,7 +13,7 @@ This section manages your Google account sign-in. Only one of the controls below
 
 <a id="sign-in"></a> Sign In
 
-: Shown when you are not signed in. Starts the sign-in flow described in [Authorize in Google Sheets]({{ site.baseurl }}{% link guides/authorize_in_google_sheets.md %}).
+: Shown when you are not signed in. Starts the sign-in flow described in [Sign In to Google Sheets]({{ site.baseurl }}{% link guides/sign_in_to_google_sheets.md %}).
 
 <a id="cancel"></a> Cancel
 

@@ -22,7 +22,7 @@ These spreadsheets are referenced by the `Balance_*` assets which can be found i
 
 `Original` and `Alternative` refer to two different variations of gameplay parameters, whereas `CSV` and `GoogleSheets` refer to different data sources. By default, the Original version of the balance is applied. You can try the Alternative version by selecting either CSV or GoogleSheets asset and clicking *Apply Game Table* in the Inspector.
 
-| If you go with the Google Sheets option, you'll need to authorize Game Tables in Google Sheets before using it. To do so, click Authenticate in the Inspector and follow the instructions in your browser. For further information, see [Authorize in Google Sheets]({{ site.baseurl }}{% link guides/authorize_in_google_sheets.md %}). |
+| If you go with the Google Sheets option, you'll need to sign in to your Google account first. Click *Sign In* in the Inspector and follow the instructions in your browser. For further information, see [Sign In to Google Sheets]({{ site.baseurl }}{% link guides/sign_in_to_google_sheets.md %}). |
 
 If you want to experiment with this example a bit further, feel free to copy one of the spreadsheets mentioned above, make some changes to it, and point one of the existing Game Tables to your version of the file (or create a brand-new Game Table altogether).
 

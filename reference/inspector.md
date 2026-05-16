@@ -21,7 +21,7 @@ These only appear if the *Source Type* is *Google Sheets*.
 
 : The unique identifier of the Google Sheets document to import data from. A spreadsheet ID is a long sequence of letters and numbers and can be found in the document's URL. As a shortcut, you can paste the entire URL into this field — Game Tables will extract the ID automatically.
 
-  To use Google Sheets documents, you must sign in to Google and grant Game Tables access to your spreadsheets. If you aren't signed in, an authorization button is shown at the bottom of the Source block. For more information, see [Authorize in Google Sheets]({{ site.baseurl }}{% link guides/authorize_in_google_sheets.md %}).
+  To use Google Sheets documents, you must sign in to Google and grant Game Tables access to your spreadsheets. If you aren't signed in, an authorization button is shown at the bottom of the Source block. For more information, see [Sign In to Google Sheets]({{ site.baseurl }}{% link guides/sign_in_to_google_sheets.md %}).
 
   Game Tables supports only documents in the US locale (en_US). You can change a spreadsheet's locale from the *File / Spreadsheet Settings* menu in Google Sheets.
 
