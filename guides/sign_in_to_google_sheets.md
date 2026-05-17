@@ -23,8 +23,8 @@ To sign in, follow these steps:
 
 1. Click *Sign In*.
 2. Google's sign-in page opens in your default browser. Enter your Google credentials and proceed.
-3. Google then asks you to grant Game Tables access to your account. The consent page lists the application and the scope it is requesting — Game Tables asks only for **read-only access to your spreadsheets**. Review the page carefully and only continue if you arrived here from Game Tables.
-4. Google shows a confirmation page once access is granted. Close that browser tab and return to Unity — the *Google Sheets* section now shows that you are signed in.
+3. Google then asks you to grant Game Tables access to your account. The consent page lists the application and the scope it is requesting—Game Tables asks only for **read-only access to your spreadsheets**. Review the page carefully and only continue if you arrived here from Game Tables.
+4. Google shows a confirmation page once access is granted. Close that browser tab and return to Unity—the *Google Sheets* section now shows that you are signed in.
 
 If you return to Unity before completing the flow in the browser, Game Tables shows the label *Awaiting sign-in response…* along with a hint to finish signing in. To abandon the pending request, click *Cancel*.
 
