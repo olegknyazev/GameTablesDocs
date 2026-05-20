@@ -3,3 +3,5 @@ remote_theme: pmarsceill/just-the-docs
 webrick:
   headers:
     Access-Control-Allow-Origin: "*"
+exclude:
+  - STYLE.md
