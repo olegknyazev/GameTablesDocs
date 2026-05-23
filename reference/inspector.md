@@ -21,9 +21,9 @@ These only appear if the *Source Type* is *Google Sheets*.
 
 : The unique identifier of the Google Sheets document to import data from. A spreadsheet ID is a long sequence of letters and numbers and can be found in the document's URL. As a shortcut, you can paste the entire URL into this field — Game Tables will extract the ID automatically.
 
-  To use Google Sheets documents, you must sign in to Google and grant Game Tables access to your spreadsheets. If you aren't signed in, an authorization button is shown at the bottom of the Source block. For more information, see [Sign In to Google Sheets]({{ site.baseurl }}{% link guides/sign_in_to_google_sheets.md %}).
+  To use Google Sheets documents, you must sign in to Google and grant Game Tables access to your spreadsheets. If you aren't signed in, an authorization button is shown at the bottom of the source block. For more information, see [Sign In to Google Sheets]({{ site.baseurl }}{% link guides/sign_in_to_google_sheets.md %}).
 
-  Game Tables supports only documents in the US locale (en_US). You can change a spreadsheet's locale from the *File / Spreadsheet Settings* menu in Google Sheets.
+  Game Tables supports only documents in the US locale (`en_US`). You can change a spreadsheet's locale from the *File / Spreadsheet Settings* menu in Google Sheets.
 
 Spreadsheet Name
 
@@ -41,11 +41,11 @@ These only appear if the *Source Type* is *CSV*.
 
 Asset
 
-: A reference to a .csv file in the project to import data from. The referenced asset must be a [TextAsset](https://docs.unity3d.com/Manual/class-TextAsset.html).
+: A reference to a `.csv` file in the project to import data from. The referenced asset must be a [`TextAsset`](https://docs.unity3d.com/Manual/class-TextAsset.html).
 
 Apply on CSV Change
 
-: If checked, the GameTable is automatically re-applied each time the source .csv file changes, without requiring a manual click on [Apply Game Table](#apply-game-table).
+: If checked, the GameTable is automatically re-applied each time the source `.csv` file changes, without requiring a manual click on [Apply Game Table](#apply-game-table).
 
 ### Common Properties
 
@@ -65,34 +65,34 @@ Apply on CSV Change
 
 <a id="search-path"></a> Search Path
 
-: Specifies the root folder under which Game Tables searches for assets referenced from the table. The path is relative to the project folder and usually starts with *Assets/* (for example, *Assets/Prefabs/Buildings*).
+: Specifies the root folder under which Game Tables searches for assets referenced from the table. The path is relative to the project folder and usually starts with `Assets/` (for example, `Assets/Prefabs/Buildings`).
 
   This folder is used both for [Prefab Names]({{ site.baseurl }}{% link reference/header_format.md %}#prefab-name) referenced in header cells and for [asset references]({{ site.baseurl }}{% link reference/data_types.md %}#asset-references) in content cells.
 
-  If the *Is Relative* option is enabled, the path is interpreted as relative to the GameTable asset's own location. For example, if the inspected GameTable lives at `Assets/Units/AllUnits.asset`, a relative search path of *Melee* refers to the `Assets/Units/Melee` folder.
+  If the **Is Relative** option is enabled, the path is interpreted as relative to the GameTable asset's own location. For example, if the inspected GameTable lives at `Assets/Units/AllUnits.asset`, a relative search path of `Melee` refers to the `Assets/Units/Melee` folder.
 
 No Value Marker
 
-: Specifies a value that, when found in a cell, marks the cell as having no value at all. A cell with no value is not the same as an empty cell. By default, an empty cell assigns an empty value to the target property — for example, a string property becomes the empty string. A cell containing the *No Value Marker*, by contrast, leaves the target property unchanged.
+: Specifies a value that, when found in a cell, marks the cell as having no value at all. A cell with no value is not the same as an empty cell. By default, an empty cell assigns an empty value to the target property — for example, a string property becomes the empty string. A cell whose value matches the No Value Marker, by contrast, leaves the target property unchanged.
 
-  This is useful when you have a group of objects that share many common properties but differ in a few. With a *No Value Marker*, you can keep all those objects in a single table:
+  This is useful when you have a group of objects that share many common properties but differ in a few. With a No Value Marker, you can keep all those objects in a single table:
 
   |          | Health | Movement Speed | Fire Range  |
   |:---------|-------:|---------------:|------------:|
   | Archer   | 120    | 35             | 14          |
   | Knight   | 90     | 20             | -           |
 
-  In the example above, the Knight Prefab has no Fire Range property, so writing a value there would normally produce an error. The "-" in that cell is the *No Value Marker* (the default value), which tells Game Tables to skip the cell entirely.
+  In the example above, the `Knight` Prefab has no Fire Range property, so writing a value there would normally produce an error. The `-` in that cell is the No Value Marker (the default value), which tells Game Tables to skip the cell entirely.
 
 <a id="array-update-policy"></a> Array Update Policy
 
 : Specifies how Game Tables combines the values from the table with the existing contents of an array property. Two modes are available:
 
-  - **Replace Whole Array** (default)
+  - *Replace Whole Array* (default)
     
     The entire array is replaced with values from the table. Since the table references specific array indices, the resulting array may contain gaps where no index was referenced; those positions are filled with the default value for the property's data type (the empty string for strings, zero for numbers, and so on). For more on data types and their default values, see [Data Types]({{ site.baseurl }}{% link reference/data_types.md %}).
 
-  - **Replace Specific Elements**
+  - *Replace Specific Elements*
     
     Only the items at the referenced indices are replaced. Any other elements of the array remain intact.
 

@@ -5,7 +5,7 @@ nav_order: 3
 # Sign In to Google Sheets
 To use Game Tables with Google Sheets, you need to sign in to your Google account and grant Game Tables read access to your spreadsheets. You can start the sign-in flow from two places:
 
-- The [GameTable Inspector]({{ site.baseurl }}{% link reference/inspector.md %}), when *Source Type* is set to *Google Sheets*.
+- The [GameTable Inspector]({{ site.baseurl }}{% link reference/inspector.md %}), when [Source Type]({{ site.baseurl }}{% link reference/inspector.md %}#source) is set to *Google Sheets*.
 
 <p style="text-align: center;">
   <img src="{{ site.baseurl }}{% link guides/sign_in_inspector.png %}"

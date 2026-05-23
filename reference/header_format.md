@@ -18,10 +18,10 @@ The full syntax of a row header is the following:
 The only required component of a row header is *Prefab Name*. The rest can be omitted.
 
 Examples:
-* Player
-* Big Soldier / Gun
-* Yellow Car / Front Left Wheel / \<Rigid Body\>
-* Plasma Gun / \<Shooter\> Patterns[0].Offset
+* `Player`
+* `Big Soldier / Gun`
+* `Yellow Car / Front Left Wheel / <Rigid Body>`
+* `Plasma Gun / <Shooter> Patterns[0].Offset`
 
 Notice the use of separators in the examples above. They must be used after *Prefab Name* and *Game Object Name* when specifying subsequent components.
 
@@ -33,9 +33,9 @@ The full syntax of a column header is the following:
 The only required component of a column header is *Property Path*. The rest can be omitted.
 
 Examples:
-* Health
-* \<Clip\> Ammo
-* Spawn Point 1 / \<Spawner\> Offset.X
+* `Health`
+* `<Clip> Ammo`
+* `Spawn Point 1 / <Spawner> Offset.X`
 
 ## Combining Row and Column Headers
 
@@ -91,12 +91,12 @@ The only required components that any cell should contain are *Prefab Name* and 
 
 *Property Path* locates a specific [Property](https://docs.unity3d.com/Manual/EditingValueProperties.html) within a [Component](https://docs.unity3d.com/Manual/Components.html) or [ScriptableObject](https://docs.unity3d.com/Manual/class-ScriptableObject.html).
 
-A dot separator can be used in a *Property Path* to denote nested properties, e.g.: Position.X. When referencing nested properties, upper levels of the name hierarchy can be omitted, provided the path is still unambiguous. For example, property Price.Gold can be referenced as just Gold, if this name matches exactly one property in the target object.
+A dot separator can be used in a *Property Path* to denote nested properties, e.g.: `Position.X`. When referencing nested properties, upper levels of the name hierarchy can be omitted, provided the path is still unambiguous. For example, property `Price.Gold` can be referenced as just `Gold`, if this name matches exactly one property in the target object.
 
-A *Property Path* can contain array indexers: SpreadPattern[0].Offset, or even wildcard indexers. The latter can be used to specify multiple items without referencing each individual one: SpawnDelays[*]. See [Arrays]({{ site.baseurl }}{% link reference/arrays.md %}) for more information.
+A *Property Path* can contain array indexers: `SpreadPattern[0].Offset`, or even wildcard indexers. The latter can be used to specify multiple items without referencing each individual one: `SpawnDelays[*]`. See [Arrays]({{ site.baseurl }}{% link reference/arrays.md %}) for more information.
 
 ## Case and Whitespace Insensitivity
 
 All the header components are both case- and whitespace-insensitive. For example, the following two paths are the same from Game Tables' point of view:
-- Cluster Mine / \<Spreading Spawner\> Targets [ 0 ] . Offset . X
-- clustermine/\<spreadingspawner\>targets[0].offset.x
+- `Cluster Mine / <Spreading Spawner> Targets [ 0 ] . Offset . X`
+- `clustermine/<spreadingspawner>targets[0].offset.x`
