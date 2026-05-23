@@ -13,7 +13,8 @@ As a general rule, you can think of a row header as locating the object, and a c
 ## Row Header
 
 The full syntax of a row header is the following:
-> **Prefab Name** / *Game Object Name* / <*Component Type*> *Property Prefix*
+
+> <pre class="syntax"><code><strong>Prefab Name</strong> / <em>Game Object Name</em> / &lt;<em>Component Type</em>&gt; <em>Property Prefix</em></code></pre>
 
 The only required component of a row header is *Prefab Name*. The rest can be omitted.
 
@@ -28,7 +29,8 @@ Notice the use of separators in the examples above. They must be used after *Pre
 ## Column Header
 
 The full syntax of a column header is the following:
-> *Game Object Name* / <*Component Type*> **Property Path**
+
+> <pre class="syntax"><code><em>Game Object Name</em> / &lt;<em>Component Type</em>&gt; <strong>Property Path</strong></code></pre>
 
 The only required component of a column header is *Property Path*. The rest can be omitted.
 
@@ -43,9 +45,7 @@ To locate a property in the project, Game Tables combines the row and column hea
 
 ![Sheets and Tables]({{ site.baseurl }}{% link reference/full_property_example.png %})
 
-The combined header of the encircled cell is:
-
-> Boss / Rocket Launcher / \<Health\> Armor Class
+The combined header of the encircled cell is `Boss / Rocket Launcher / <Health> Armor Class`.
 
 This combined header is used to locate the object's property in the project. Game Tables gives you some flexibility in how the required information can be split between row and column headers. For example, the following combinations of different row and column headers all point to the same object property:
 
