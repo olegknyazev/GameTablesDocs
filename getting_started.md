@@ -4,41 +4,41 @@ nav_order: 1
 ---
 # Getting Started
 
-## Importing Package
-After purchasing the package on Asset Store, you can import it into your project via the [Package Manager window](https://docs.unity3d.com/Manual/upm-ui.html). To do so, select *Packages: My Assets* in the Packages dropdown menu, find Game Tables in the list and click *Import*.
+## Importing the Package
+After purchasing the package on the Asset Store, you can import it into your project via the [Package Manager window](https://docs.unity3d.com/Manual/upm-ui.html). To do so, select *Packages: My Assets* in the Packages dropdown menu, find Game Tables in the list, and click *Import*.
 
 ## Example Scene
-The Game Tables package contains an example scene showcasing its use. To import this example into your project, find Game Tables in the Package Manager window and click *Import* on the Samples tab.
+The Game Tables package contains an example scene that demonstrates a typical setup. To import this example into your project, find Game Tables in the Package Manager window and click *Import* on the Samples tab.
 
-This action will add `Samples/Game Tables/<version>/Game Tables Example Project` folder to your project. This folder contains an example scene and all the assets required for it to work. It is completely optional and can be deleted at any time.
+This adds the `Samples/Game Tables/<version>/Game Tables Example Project` folder to your project, containing the scene and all the supporting assets. It is completely optional and can be deleted at any time.
 
-The entry point to the showcase is the `Example` scene located at the root of the example folder. If you open this scene and enter Play mode, you'll be able to play a simple top-down shooting game with placeholder graphics. The key point of this example is that all the essential gameplay parameters are stored in spreadsheets.
+The example's entry point is the `Example` scene at the root of that folder. If you open this scene and enter Play mode, you can play a simple top-down shooter with placeholder graphics. The key point of this example is that all the essential gameplay parameters are stored in spreadsheets.
 
-These spreadsheets are referenced by the `Balance_*` assets which can be found in the example folder. There are four such assets:
+Four `Balance_*` assets in the example folder reference these spreadsheets:
 * `Balance_Original_CSV` imports from the `CSV/Balance_Original.csv` file
 * `Balance_Alternative_CSV` imports from the `CSV/Balance_Alternative.csv` file
 * `Balance_Original_GoogleSheets` imports from the [`Balance_Original`](https://docs.google.com/spreadsheets/d/1xaYudoHmST4hAjno8C70gcSN_2oSyo7w69sZz49FHO4/edit?usp=sharing) Google Sheets document
 * `Balance_Alternative_GoogleSheets` imports from the [`Balance_Alternative`](https://docs.google.com/spreadsheets/d/1HuHCQntTOQbM6wg0M750dN4ybKULCeGTuy6XouFTTWY/edit?usp=sharing) Google Sheets document
 
-`Original` and `Alternative` refer to two different variations of gameplay parameters, whereas `CSV` and `GoogleSheets` refer to different data sources. By default, the `Original` version of the balance is applied. You can try the `Alternative` version by selecting either `CSV` or `GoogleSheets` asset and clicking *Apply Game Table* in the Inspector.
+`Original` and `Alternative` are the two variations of gameplay parameters, whereas `CSV` and `GoogleSheets` are the two data source types. By default, the `Original` version is applied. You can try the `Alternative` version by selecting either the `CSV` or the `GoogleSheets` asset and clicking *Apply Game Table* in the Inspector.
 
-| If you go with the Google Sheets option, you'll need to sign in to your Google account first. Click *Sign In* in the Inspector and follow the instructions in your browser. For further information, see [Sign In to Google Sheets]({{ site.baseurl }}{% link guides/sign_in_to_google_sheets.md %}). |
+| If you go with the Google Sheets option, you'll need to sign in to your Google account first. Click *Sign In* in the Inspector and follow the instructions in your browser. For more, see [Sign In to Google Sheets]({{ site.baseurl }}{% link guides/sign_in_to_google_sheets.md %}). |
 
-If you want to experiment with this example a bit further, feel free to copy one of the spreadsheets mentioned above, make some changes to it, and point one of the existing Game Tables to your version of the file (or create a brand-new Game Table altogether).
+If you want to experiment with this example further, feel free to copy one of the spreadsheets above, edit it, and point one of the existing GameTables at your copy (or create a new GameTable from scratch).
 
-If you want to learn more about the Game Tables workflow and data formats, you may find the [Main Concepts]({{ site.baseurl }}{% link main_concepts.md %}) page useful.
+When you're ready to go beyond the example, the [Main Concepts]({{ site.baseurl }}{% link main_concepts.md %}) page covers the Game Tables workflow and data formats.
 
 ## Package Structure
-Game Tables is distributed as a UPM package and is installed into the `Packages/Game Tables` folder. Under this folder, you can find the following:
+Game Tables is distributed as a UPM package and is installed into the `Packages/Game Tables` folder. Inside, you'll find:
 
  * `Editor`
  
-   This is the main directory containing the Game Tables source code, which is compiled into the `GameTables.Editor` [assembly](https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html).
+   Game Tables source code, compiled into the `GameTables.Editor` [assembly](https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html).
 
  * `ThirdParty`
  
-   This directory contains the third-party assemblies required by Game Tables. Here you can also find the `LICENSES.txt` file with licensing information for all the third-party components.
+   Third-party assemblies required by Game Tables, plus `LICENSES.txt` with licensing information for all of them.
 
  * `Tests.zip`
    
-   This is the test suite for Game Tables, which can be useful if you intend to modify the source code. It's packed into a ZIP archive so that these tests are not processed by Unity and are not displayed in the Test Runner window. If you want to make the Game Tables tests runnable, simply unpack the archive.
+   The test suite, useful if you intend to modify the source code. It's packed into a ZIP archive so the tests aren't processed by Unity or shown in the Test Runner window. Unpack it to make them runnable.
