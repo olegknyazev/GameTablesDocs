@@ -1,5 +1,6 @@
 title: Game Tables
 remote_theme: pmarsceill/just-the-docs
+logo: icon.png
 webrick:
   headers:
     Access-Control-Allow-Origin: "*"
