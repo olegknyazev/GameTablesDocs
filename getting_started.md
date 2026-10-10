@@ -39,6 +39,6 @@ Game Tables is distributed as a UPM package and is installed into the `Packages/
  
    Third-party assemblies required by Game Tables, plus `LICENSES.txt` with licensing information for all of them.
 
- * `Tests.zip`
+ * `Tests.unitypackage`
    
-   The test suite, useful if you intend to modify the source code. It's packed into a ZIP archive so the tests aren't processed by Unity or shown in the Test Runner window. Unpack it to make them runnable.
+   The test suite, useful if you intend to modify the source code. It's packed into a separate package so the tests aren't processed by Unity or shown in the Test Runner window. Import it into your project to make them runnable.
