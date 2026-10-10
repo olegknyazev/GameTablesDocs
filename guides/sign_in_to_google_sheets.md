@@ -30,6 +30,6 @@ If you return to Unity before completing the flow in the browser, Game Tables sh
 
 ## Sign Out
 
-To remove the credentials stored on this computer, open the [Preferences]({{ site.baseurl }}{% link reference/preferences.md %}#sign-out) window and click *Sign Out*. After signing out, you will need to sign in again before importing from Google Sheets.
+To remove the [credentials stored on your computer]({{ site.baseurl }}{% link reference/google_sheets_access.md %}#credential-storage), open the [Preferences]({{ site.baseurl }}{% link reference/preferences.md %}#sign-out) window and click *Sign Out*. After signing out, you will need to sign in again before importing from Google Sheets.
 
 | *Sign Out* only removes the locally stored credentials. It does not revoke the access grant on Google's side. To do that, visit your [Google account permissions page](https://myaccount.google.com/permissions). |

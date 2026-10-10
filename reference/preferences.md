@@ -21,6 +21,6 @@ This section manages your Google account sign-in. Only one of the controls below
 
 <a id="sign-out"></a> Sign Out
 
-: Shown when you are signed in. Deletes the credentials stored on this computer that grant Game Tables access to Google Sheets. After clicking it, you will need to sign in again before importing from Google Sheets.
+: Shown when you are signed in. Deletes the credentials stored on your computer that grant Game Tables access to Google Sheets. After clicking it, you will need to sign in again before importing from Google Sheets.
 
   | *Sign Out* only removes the locally stored credentials. It does not revoke the access grant on Google's side. To do that, visit your [Google account permissions page](https://myaccount.google.com/permissions). |
