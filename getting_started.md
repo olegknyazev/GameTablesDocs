@@ -37,7 +37,11 @@ Game Tables is distributed as a UPM package and is installed into the `Packages/
 
  * `ThirdParty`
  
-   Third-party assemblies required by Game Tables, plus `LICENSES.txt` with licensing information for all of them.
+   Third-party assemblies required by Game Tables.
+
+ * `Third-Party Notices.txt`
+ 
+   Licensing information for the third-party assemblies.
 
  * `Tests.unitypackage`
    
