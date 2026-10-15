@@ -23,7 +23,7 @@ These only appear if the *Source Type* is *Google Sheets*.
 
   To use Google Sheets documents, you must sign in to Google and grant Game Tables access to your spreadsheets. If you aren't signed in, an authorization button is shown at the bottom of the source block. For more information, see [Sign In to Google Sheets]({{ site.baseurl }}{% link guides/sign_in_to_google_sheets.md %}).
 
-  Game Tables supports only documents in the US locale (`en_US`). You can change a spreadsheet's locale from the *File / Spreadsheet Settings* menu in Google Sheets.
+  Game Tables supports only documents in the US locale (`en_US`). You can change a spreadsheet's locale from the *File / Settings* menu in Google Sheets.
 
 Spreadsheet Name
 
@@ -55,7 +55,7 @@ Apply on CSV Change
 
 <a id="layout"></a> Layout
 
-: Specifies whether Game Tables should interpret each sheet as a single continuous table (*Single Table*) or a collection of multiple isolated tables (*Islands*). Since each table has its own row and column headers, putting multiple tables on the same sheet lets you apply properties to several different types of objects from a single sheet.
+: Specifies whether Game Tables should interpret each sheet as a single continuous table (*Single Table*) or as a collection of multiple isolated tables (*Islands*). Since each table has its own row and column headers, putting multiple tables on the same sheet lets you apply properties to several different types of objects from a single sheet.
 
   For multi-sheet documents, this setting is applied to each sheet independently. In other words, every sheet of a document can contain several tables.
 
