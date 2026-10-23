@@ -10,6 +10,8 @@ After purchasing the package on the Asset Store, you can import it into your pro
 ## Example Scene
 The Game Tables package contains an example scene that demonstrates a typical setup. To import this example into your project, find Game Tables in the Package Manager window and click *Import* on the Samples tab.
 
+| The example uses the [Universal Render Pipeline (URP)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/index.html). If your project uses a different render pipeline, import the example into a separate project created from Unity's URP template. |
+
 This adds the `Samples/Game Tables/<version>/Game Tables Example Project` folder to your project, containing the scene and all the supporting assets. It is completely optional and can be deleted at any time.
 
 The example's entry point is the `Example` scene at the root of that folder. If you open this scene and enter Play mode, you can play a simple top-down shooter with placeholder graphics. The key point of this example is that all the essential gameplay parameters are stored in spreadsheets.
