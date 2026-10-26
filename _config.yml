@@ -5,5 +5,9 @@ webrick:
   headers:
     Access-Control-Allow-Origin: "*"
 exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - docker-compose.yml
   - STYLE.md
   - pdf
