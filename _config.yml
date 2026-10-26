@@ -6,3 +6,4 @@ webrick:
     Access-Control-Allow-Origin: "*"
 exclude:
   - STYLE.md
+  - pdf

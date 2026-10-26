@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Tables Manual</title>
+  <style>$site_stylesheet</style>
+  <style>$print_stylesheet</style>
+  <script>
+    $layout_finished = new Promise(resolve => {
+      window.PagedConfig = { after: () => resolve() };
+    });
+  </script>
+  <script src="$paged_js"></script>
+</head>
+<body>
+  <div class="main-content">
+    <section class="cover">
+      <img src="$logo" alt="">
+      <h1 class="cover-title">Game Tables</h1>
+      <p class="cover-subtitle">User Manual</p>
+      <p class="cover-version">Version $package_version</p>
+      <p class="cover-link">
+        The latest version of this manual is available online at<br>
+        <a href="https://$domain">$domain</a>
+      </p>
+    </section>
+    <nav class="contents">
+      <h1 class="contents-title">Contents</h1>
+      <ol>$contents</ol>
+    </nav>
+    $sections
+  </div>
+</body>
+</html>

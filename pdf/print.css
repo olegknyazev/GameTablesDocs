@@ -1,0 +1,66 @@
+@page {
+  size: A4;
+  margin: 22mm 20mm 24mm;
+
+  @top-right {
+    content: string(chapter);
+    font: 9pt system-ui, sans-serif;
+    color: #959396;
+  }
+
+  @bottom-center {
+    content: counter(page);
+    font: 9pt system-ui, sans-serif;
+    color: #5c5962;
+  }
+}
+
+@page :first {
+  @top-right { content: none; }
+  @bottom-center { content: none; }
+}
+
+html, body { background: #fff; }
+body { font-size: 10.5pt; line-height: 1.5; }
+.main-content { max-width: none; margin: 0; padding: 0; }
+.main-content a { color: #5c33cc; text-decoration: none; }
+.main-content code { font-size: 0.85em; }
+
+.cover { break-after: page; padding-top: 55mm; text-align: center; }
+.cover img { width: 32mm; height: 32mm; }
+.main-content .cover-title { margin: 8mm 0 2mm; font-size: 34pt; }
+.cover-subtitle { margin: 0; font-size: 16pt; color: #5c5962; }
+.cover-version { margin-top: 6mm; color: #5c5962; }
+.cover-link { margin-top: 70mm; font-size: 9.5pt; color: #5c5962; }
+
+/* The theme numbers list items with CSS counters, which Paged.js resets on every page. */
+.main-content ol { list-style: decimal; padding-left: 7mm; }
+.main-content ol ol { list-style: lower-alpha; }
+.main-content ol > li::before, .main-content ol > li ol > li::before { content: none; }
+
+.contents { break-after: page; }
+.contents ol { list-style: none; margin: 0; padding: 0; }
+.contents li { margin: 0; padding: 0; }
+.contents a { display: flex; color: inherit; }
+.contents a::after {
+  content: target-counter(attr(href), page);
+  margin-left: auto;
+  padding-left: 4mm;
+  font-weight: 400;
+}
+.contents .contents-level-1 { margin-top: 3mm; font-weight: 600; }
+.contents .contents-level-2 { padding-left: 9mm; }
+
+.section-number { display: inline-block; min-width: 9mm; }
+.main-content h2 .section-number, .main-content h3 .section-number { min-width: 11mm; }
+.main-content h1 .section-title { string-set: chapter content(text); }
+
+.page.depth-0 { break-before: page; }
+.main-content h1, .main-content h2, .main-content h3 { break-after: avoid; }
+.main-content h1 { margin-top: 0; font-size: 22pt; }
+.main-content h2 { margin-top: 7mm; font-size: 15pt; }
+.main-content h3 { margin-top: 5mm; font-size: 12pt; }
+
+img { max-width: 100%; break-inside: avoid; }
+.table-wrapper { border: 1px solid #eeebee; box-shadow: none; break-inside: avoid; }
+pre, blockquote { break-inside: avoid; }
