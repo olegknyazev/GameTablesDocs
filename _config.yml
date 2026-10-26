@@ -1,4 +1,5 @@
 title: Game Tables
+package_version: 1.0.0
 remote_theme: pmarsceill/just-the-docs
 logo: icon.png
 webrick:

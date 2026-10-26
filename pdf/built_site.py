@@ -26,6 +26,14 @@ class BuiltSite:
     def domain(self):
         return (self.root / "CNAME").read_text(encoding="utf-8").strip()
 
+    def package_version(self):
+        label = self._parse("/").find("div", "site-version")
+        version = label.attributes.get("data-package-version") if label else None
+        if not version:
+            message = "The built site has no package version. Set package_version in _config.yml and restart Jekyll."
+            raise ValueError(message)
+        return version
+
     def stylesheet(self):
         return (self.root / "assets/css/just-the-docs-default.css").read_text(encoding="utf-8")
 

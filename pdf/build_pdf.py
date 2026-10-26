@@ -10,12 +10,11 @@ import manual
 from built_site import BuiltSite
 
 DOCS_ROOT = Path(__file__).resolve().parent.parent
-PACKAGE_VERSION = "1.0.0"
 
 
 def main():
     arguments = parse_arguments()
-    html = manual.assemble(BuiltSite(arguments.site), PACKAGE_VERSION)
+    html = manual.assemble(BuiltSite(arguments.site))
     with tempfile.TemporaryDirectory() as temporary_directory:
         html_file = arguments.html or Path(temporary_directory) / "manual.html"
         html_file.write_text(html, encoding="utf-8")

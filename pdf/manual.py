@@ -17,13 +17,13 @@ NUMBERED_LEVELS = 3
 CONTENTS_LEVELS = 2
 
 
-def assemble(site, package_version):
+def assemble(site):
     pages = site.pages()
     anchors = Anchors(site.domain(), [page.url for page in pages])
     sections = [to_section(page, site, anchors) for page in pages]
     headings = find_headings(*sections, max_level=NUMBERED_LEVELS)
     add_section_numbers(headings)
-    return render(site, package_version, table_of_contents(headings), sections)
+    return render(site, table_of_contents(headings), sections)
 
 
 def to_section(page, site, anchors):
@@ -103,7 +103,7 @@ def contents_entry(heading):
     return Element("li", {"class": f"contents-level-{heading_level(heading)}"}, [link])
 
 
-def render(site, package_version, contents, sections):
+def render(site, contents, sections):
     template = Template(TEMPLATE.read_text(encoding="utf-8"))
     return template.substitute(
         site_stylesheet=site.stylesheet(),
@@ -111,7 +111,7 @@ def render(site, package_version, contents, sections):
         layout_finished=LAYOUT_FINISHED,
         paged_js=PAGED_JS.as_uri(),
         logo=site.file_uri("/icon.png"),
-        package_version=escape(package_version),
+        package_version=escape(site.package_version()),
         domain=escape(site.domain()),
         contents=to_html(contents),
         sections=to_html(sections),
